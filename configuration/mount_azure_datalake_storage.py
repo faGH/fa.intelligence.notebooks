@@ -4,11 +4,21 @@
 
 # COMMAND ----------
 
-dbutils.widgets.text("storage_container_name", "raw", "Storage Container Name")
-dbutils.widgets.text("storage_account_name", "monitoringstaticimages", "Storage Account Name")
-dbutils.widgets.text("client_id", "5fc36737-0cba-4261-acce-d798dd2826d5", "Client Id")
-dbutils.widgets.text("tenant_id", "72aa0d83-624a-4ebf-a683-1b9b45548610", "Tenant Id")
-dbutils.widgets.text("client_secret", "Hn0rcY-~kw~DNi2~o.ZBD7vE0~3hjaLYv3", "Client Secret")
+# MAGIC %md
+# MAGIC ### Setup Input Widgets for Notebook
+
+# COMMAND ----------
+
+dbutils.widgets.text("storage_container_name", "AZURE_STORAGE_CONTAINER_NAME", "Storage Container Name")
+dbutils.widgets.text("storage_account_name", "AZURE_STORAGE_ACCOUNT_NAME", "Storage Account Name")
+dbutils.widgets.text("client_id", "AZURE_SERVICE_PRINCIPAL_CLIENT_ID", "Client Id")
+dbutils.widgets.text("tenant_id", "AZURE_SERVICE_PRINCIPAL_TENANT_ID", "Tenant Id")
+dbutils.widgets.text("client_secret", "AZURE_SERVICE_PRINCIPAL_CLIENT_SECRET", "Client Secret")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ### Grab Input Values from Widgets
 
 # COMMAND ----------
 
@@ -17,6 +27,11 @@ storage_account_name = dbutils.widgets.get("storage_account_name")
 client_id = dbutils.widgets.get("client_id")
 tenant_id = dbutils.widgets.get("tenant_id")
 client_secret = dbutils.widgets.get("client_secret")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ### Setup Mounting Configuration
 
 # COMMAND ----------
 
@@ -30,7 +45,8 @@ config = {
 
 # COMMAND ----------
 
-print(config)
+# MAGIC %md
+# MAGIC ### Perform Mount
 
 # COMMAND ----------
 
@@ -42,14 +58,24 @@ dbutils.fs.mount(
 
 # COMMAND ----------
 
-# MAGIC %fs
-# MAGIC ls /mnt/public/
+# MAGIC %md
+# MAGIC ### Confirm Mount Succeeded
 
 # COMMAND ----------
 
 # MAGIC %fs
-# MAGIC ls /mnt/dmdatabricksdqxlc/bronze
+# MAGIC ls mnt/
 
 # COMMAND ----------
 
-# dbutils.fs.unmount(f"/mnt/{storage_account_name}/{storage_container_name}")
+# MAGIC %md
+# MAGIC ### Allow Run as Child Notebook
+# MAGIC Here we return from the notebook's execution so that if this notebook is being called by a parent, it can understand when it's done.
+
+# COMMAND ----------
+
+dbutils.notebook.exit(f"{storage_account_name}/{storage_container_name} mounted.")
+
+# COMMAND ----------
+
+
