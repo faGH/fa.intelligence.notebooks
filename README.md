@@ -7,8 +7,7 @@ FrostAura Intelligence provides a range of open-source notebooks for Python-base
 - Experiments
 
 ## Getting Started
-### Environmental Setup
-For setting up your environment to work with this repo, see the [environments](./environments/README.md) page.
+- [Setup your environment.](./environments/README.md)
 
 ## Credits
 - [Jeff Heaton's GitHub](https://github.com/jeffheaton/t81_558_deep_learning/blob/master/)
