@@ -1,8 +1,6 @@
 # fa.intelligence.notebooks
-FrostAura Intelligence Notebooks
-
 ## Description
-FrostAura Intelligence provides a range of open-source resources for Python-based machine learning solutions like:
+FrostAura Intelligence provides a range of open-source notebooks for Python-based machine learning solutions like:
 - Utilities
 - Environments
 - Labs
