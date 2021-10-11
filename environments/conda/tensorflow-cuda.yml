@@ -2,7 +2,8 @@ name: tensorflow-cuda
 
 dependencies:
     - python=3.9
-    - pip>=19.0
+    - pip
+    - tensorflow
     - jupyter
     - scikit-learn
     - scipy
@@ -22,3 +23,16 @@ dependencies:
         - bayesian-optimization
         - gym
         - kaggle
+        - urllib3
+        - tf-agents
+        - keras-rl2
+        - plotly
+        - opencv-python
+        - opencv-contrib-python
+        - av
+        - pyvirtualdisplay
+        - box2d
+        - pyglet
+        - ale-py
+        - pyopengl
+        - sklearn
