@@ -1,17 +1,6 @@
-# fa.intelligence.notebooks
+# conda
 ## Description
-FrostAura Intelligence provides a range of open-source notebooks for Python-based machine learning solutions like:
-- Utilities
-- Environments
-- Labs
-- Experiments
-
-## Getting Started
-### Environmental Setup
-For setting up your environment to work with this repo, see the [environments](./environments/README.md) page.
-
-## Credits
-- [Jeff Heaton's GitHub](https://github.com/jeffheaton/t81_558_deep_learning/blob/master/)
+This page describes how to set up any conda environment within this directory. 
 
 ## Contribute
 In order to contribute, simply fork the repository, make changes and create a pull request.
