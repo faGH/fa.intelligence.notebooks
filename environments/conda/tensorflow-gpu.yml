@@ -16,9 +16,10 @@ dependencies:
     - pyyaml
     - flask
     - boto3
+    - opencv
     - pip:
-        - tensorflow-gpu
         - tensorflow
+        - opencv-python
         - bayesian-optimization
         - gym
         - kaggle
