@@ -17,9 +17,11 @@ dependencies:
     - pyyaml
     - flask
     - boto3
+    - swig
     - pip:
         - tensorflow-macos
         - tensorflow-metal
         - bayesian-optimization
         - gym
         - kaggle
+        - box2d

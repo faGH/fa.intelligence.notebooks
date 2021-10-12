@@ -17,10 +17,13 @@ dependencies:
     - flask
     - boto3
     - opencv
+    - swig
     - pip:
+        - 
         - tensorflow
         - opencv-python
         - bayesian-optimization
         - gym
         - kaggle
         - keras-rl2
+        - box2d
