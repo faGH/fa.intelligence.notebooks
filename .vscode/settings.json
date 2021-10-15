@@ -1,5 +1,10 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "jupyter.jupyterServerType": "remote"
+    "jupyter.jupyterServerType": "remote",
+    "files.exclude": {
+        "**/.git*": true,
+        "**/.ipynb_checkpoints": true,
+        "**/.vscode": true
+    }
 }
