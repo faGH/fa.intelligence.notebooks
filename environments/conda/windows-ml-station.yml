@@ -1,4 +1,4 @@
-name: tensorflow-gpu
+name: windows-ml-station
 
 dependencies:
     - python=3.9
@@ -19,11 +19,12 @@ dependencies:
     - opencv
     - swig
     - pip:
-        - 
         - tensorflow
+        - tensorforce
         - opencv-python
         - bayesian-optimization
         - gym
+        - gym[atari]
         - kaggle
         - keras-rl2
         - box2d
