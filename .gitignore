@@ -2,6 +2,7 @@ models
 *data.p
 *.ignore.*
 labs/courses/Artificial Intelligence for Simple Games/notebooks/configuration/images/abstract/0.jpg
-labs/email/smtp_send_email.ipynb
+labs/email/**
 labs/nlp/kaggle.json
 labs/deep_fakes/SimSwap
+labs/confluence/**
