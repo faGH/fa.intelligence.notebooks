@@ -6,3 +6,4 @@ labs/email/**
 labs/nlp/kaggle.json
 labs/deep_fakes/SimSwap
 labs/confluence/**
+data/iris_model.pt
