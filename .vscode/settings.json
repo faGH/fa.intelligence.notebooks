@@ -5,6 +5,7 @@
     "files.exclude": {
         "**/.git*": true,
         "**/.ipynb_checkpoints": true,
-        "**/.vscode": true
+        "**/.vscode": true,
+        "**/__pycache__": true
     }
 }
