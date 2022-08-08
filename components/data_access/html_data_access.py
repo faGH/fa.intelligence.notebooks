@@ -2,8 +2,16 @@
 import requests
 from bs4 import BeautifulSoup
 
-class HtmlDataAccess:
-    '''HTML-related functionality.'''
+class IHtmlDataAccess:
+    '''Component to perform HTML actions.'''
+
+    def get_page(self, url: str) -> object:
+        '''Get a HTML page via a URL.'''
+
+        raise NotImplementedError()
+
+class HtmlDataAccess(IHtmlDataAccess):
+    '''omponent to perform HTML actions.'''
 
     def get_page(self, url: str) -> object:
         '''Get a queryable HTML page via a URL.'''
