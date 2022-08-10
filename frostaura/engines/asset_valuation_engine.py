@@ -1,6 +1,6 @@
 '''This module defines valuation engine components.'''
-from components.data_access.html_data_access import HtmlDataAccess
-from components.models.valuation_result import ValuationResult
+from frostaura.data_access.html_data_access import HtmlDataAccess
+from frostaura.models.valuation_result import ValuationResult
 
 class IAssetValuationEngine:
     '''Component to perform functions related to asset valuation.'''
