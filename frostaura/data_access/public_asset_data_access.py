@@ -1,5 +1,4 @@
-'''This module defines Yahoo Finance data access components.'''
-import yfinance as yf
+'''This module defines public asset data access components.'''
 import pandas as pd
 
 class IPublicAssetDataAccess:
@@ -9,15 +8,3 @@ class IPublicAssetDataAccess:
         '''Get historical price movements for a given symbol.'''
 
         raise NotImplementedError()
-
-
-class YahooFinanceDataAccess(IPublicAssetDataAccess):
-    '''Yahoo Finance-related functionality.'''
-
-    def get_symbol_history(self, symbol: str) -> pd.DataFrame:
-        '''Get historical price movements for a given symbol.'''
-
-        ticker = yf.Ticker(symbol)
-        hist = ticker.history(period='max')
-
-        return hist

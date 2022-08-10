@@ -6,7 +6,9 @@
         "**/.git*": true,
         "**/.ipynb_checkpoints": true,
         "**/.vscode": true,
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "*.egg*/**": true,
+        "build/**": true
     },
     "python.analysis.extraPaths": [
         "./components"
