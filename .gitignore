@@ -9,3 +9,4 @@ data/*.pt
 **/__pycache__/**
 build/**
 *.egg-info/**
+dist/**

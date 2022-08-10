@@ -1,3 +1,1 @@
-include resources/*.png
-include resources/*.jpg
-include resources/*.json
+include frostaura/resources*
