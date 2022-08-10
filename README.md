@@ -11,7 +11,7 @@ FrostAura Intelligence provides a range of open-source notebooks for Python-base
 - [Setup your environment.](./environments/README.md)
 ### PIP Installation
 ```
-pip install -U frostaura
+pip install -U --no-cache-dir frostaura
 ````
 #### Example Usage (See [all the modules here](https://github.com/faGH/fa.intelligence.notebooks/tree/main/frostaura).)
 ```
@@ -19,6 +19,11 @@ from frostaura import (models,
                        data_access,
                        engines,
                        managers)
+
+html_data_access = data_access.HtmlDataAccess()
+engine = engines.FinvizAssetValuationEngine(html_data_access=html_data_access)
+
+vars(engine.valuate(symbol='AAPL', company_name='Apple Inc.'))
 ```
 
 ## Credits
