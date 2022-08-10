@@ -8,6 +8,14 @@ FrostAura Intelligence provides a range of open-source notebooks for Python-base
 
 ## Getting Started
 - [Setup your environment.](./environments/README.md)
+### PIP Installation
+```
+pip install -U frostaura
+````
+#### Example Usage
+```
+from frostaura import models, data_access, engines, managers
+```
 
 ## Credits
 - [Jeff Heaton's GitHub](https://github.com/jeffheaton/t81_558_deep_learning/blob/master/)
