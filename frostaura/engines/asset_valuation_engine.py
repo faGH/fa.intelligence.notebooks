@@ -1,5 +1,5 @@
 '''This module defines valuation engine components.'''
-from frostaura.data_access.html_data_access import HtmlDataAccess
+from frostaura.data_access import IResourcesDataAccess
 from frostaura.models.valuation_result import ValuationResult
 
 class IAssetValuationEngine:
@@ -13,7 +13,7 @@ class IAssetValuationEngine:
 class FinvizAssetValuationEngine(IAssetValuationEngine):
     '''Valuation-related functionality using Finviz under-the-hood.'''
 
-    def __init__(self, html_data_access: HtmlDataAccess):
+    def __init__(self, html_data_access: IResourcesDataAccess):
         self.html_data_access = html_data_access
 
     def __determine_intrinsic_value__(self,
