@@ -1,7 +1,8 @@
 {
 	"recommendations": [
-        "ms-python.python",
-        "kevinrose.vsc-python-indent",
-        "ms-toolsai.jupyter"
+                "ms-python.python",
+                "kevinrose.vsc-python-indent",
+                "ms-toolsai.jupyter",
+                "oderwat.indent-rainbow"
 	]
 }
