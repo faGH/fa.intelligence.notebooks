@@ -58,3 +58,16 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
         total_profit_usd: float = total_current_usd - total_purchased_usd
 
         return ProfitCalculationResult(percentage=total_profit_ratio, value=total_profit_usd)
+
+    def calculate_holdings_ratios(self, holdings: dict) -> dict:
+        '''Determine the ratios that each asset makes up of the overall portfolio adding up to 1.'''
+
+        labels: list = [h for h in holdings]
+        transactions = [holdings[h]['transactions'] for h in holdings]
+        transactions = [sum([ti['usd'] for ti in t]) for t in transactions]
+        holding_ratios: dict = {}
+
+        for label_index, label in enumerate(labels):
+            holding_ratios[label] = transactions[label_index]
+
+        return holding_ratios

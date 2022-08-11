@@ -13,3 +13,8 @@ class IAssetCalculationsEngine:
         '''Determine the holdings profit percentage & profit USD, given the holdings.'''
 
         raise NotImplementedError()
+
+    def calculate_holdings_ratios(self, holdings: dict) -> dict:
+        '''Determine the ratios that each asset makes up of the overall portfolio, adding up to 1.'''
+
+        raise NotImplementedError()
