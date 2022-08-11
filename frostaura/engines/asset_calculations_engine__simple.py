@@ -1,5 +1,6 @@
 '''This module defines calculations engine components.'''
 from datetime import datetime
+from logging import debug, info
 import pandas as pd
 from frostaura.data_access.public_asset_data_access import IPublicAssetDataAccess
 from frostaura.engines.asset_calculations_engine import IAssetCalculationsEngine
@@ -17,6 +18,8 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
         __holdings__: dict = holdings.copy()
 
         for holding_symbol in __holdings__:
+            debug(f'Calculating profit for asset "{holding_symbol}".')
+
             context: dict = __holdings__[holding_symbol]
             history: pd.DataFrame = self.public_asset_data_access.get_symbol_history(symbol=context['symbol'])
             transactions_by_date_asc: list = sorted(context['transactions'], key=lambda i: i['date'])
@@ -27,6 +30,8 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
                 transaction_date: datetime = transaction['date']
                 transaction_value: float = transaction['value']
                 transaction_close: float = history.loc[transaction_date].Close
+
+                debug(f'[{holding_symbol}] Processing transaction value ${transaction_value} on {transaction_date}.')
 
                 transaction['usd'] = transaction_close * transaction_value
                 total_purchased_usd += transaction_close * transaction_value
@@ -43,6 +48,8 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
 
     def calculate_holdings_profit(self, holdings: dict) -> ProfitCalculationResult:
         '''Determine the holdings profit percentage & profit USD, given the holdings.'''
+
+        debug('Calculating overall holdings profits.')
 
         holdings: dict = self.interpolate_holdings_profits(holdings=holdings)
         total_purchased_usd: float = sum([holdings[k]['total_purchased_usd'] for k in holdings])
