@@ -1,6 +1,6 @@
 '''This module defines calculations engine components.'''
 from datetime import datetime
-from logging import debug, info
+from logging import debug
 import pandas as pd
 from frostaura.data_access.public_asset_data_access import IPublicAssetDataAccess
 from frostaura.engines.asset_calculations_engine import IAssetCalculationsEngine

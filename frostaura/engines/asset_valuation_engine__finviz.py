@@ -1,4 +1,5 @@
 '''This module defines valuation engine components.'''
+from logging import debug
 from frostaura.data_access import IResourcesDataAccess
 from frostaura.models.valuation_result import ValuationResult
 from frostaura.engines.asset_valuation_engine import IAssetValuationEngine
@@ -71,15 +72,15 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
         if '-' not in annual_dividend_percentage_str:
             annual_dividend_percentage = float(annual_dividend_percentage_str)
 
-        print(f'EPS: {eps_ttm}, EPS Next 5 Years: {eps_five_years}%')
-        print(f'P/E Ratio: {avg_pe_ratio}, Current Price: $ {current_price}')
+        debug(f'EPS: {eps_ttm}, EPS Next 5 Years: {eps_five_years}%')
+        debug(f'P/E Ratio: {avg_pe_ratio}, Current Price: $ {current_price}')
 
         intrinsic_value: float = self.__determine_intrinsic_value__(eps_ttm=eps_ttm,
                             growth_rate=eps_five_years,
                             pe_ratio=avg_pe_ratio,
                             margin_of_safety=0.3)
 
-        print(f'Intrinsic Value: $ {intrinsic_value} vs. Current Price: $ {current_price}')
+        debug(f'Intrinsic Value: $ {intrinsic_value} vs. Current Price: $ {current_price}')
 
         return ValuationResult(
             symbol=symbol,
