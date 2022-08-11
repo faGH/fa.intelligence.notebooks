@@ -8,12 +8,15 @@ FrostAura Intelligence provides a range of open-source notebooks for Python-base
 
 ## Getting Started
 ### Local
+- Python >= 3.7 required.
 - [Setup your environment.](./environments/README.md)
+
+To build the Python package locally, from the root of the project, run `python -m build` (Legacy way: `python setup.py sdist bdist_wheel`).
 ### PIP Installation
 ```
 pip install -U --no-cache-dir frostaura
 ````
-#### Example Usage (See [all the modules here](https://github.com/faGH/fa.intelligence.notebooks/tree/main/frostaura).)
+#### Example Usage (See [all the examples here](https://github.com/faGH/fa.intelligence.notebooks/tree/main/examples).)
 ```
 from frostaura import (models,
                        data_access,
