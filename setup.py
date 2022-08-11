@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent
-VERSION = '1.0.8' 
+VERSION = '1.0.9' 
 DESCRIPTION = 'FrostAura provides a range of open-source components provide a variety of problem domains.'
 LONG_DESCRIPTION = (ROOT_DIR / 'README.md').read_text()
 
