@@ -68,6 +68,6 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
         holding_ratios: dict = {}
 
         for label_index, label in enumerate(labels):
-            holding_ratios[label] = transactions[label_index]
+            holding_ratios[label] = transactions[label_index] / sum(transactions)
 
         return holding_ratios

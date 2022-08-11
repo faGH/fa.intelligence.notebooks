@@ -87,5 +87,8 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
             company_name=company_name,
             current_price=current_price,
             valuation_price=intrinsic_value,
-            annual_dividend_percentage=annual_dividend_percentage
+            annual_dividend_percentage=annual_dividend_percentage,
+            eps_ttm=eps_ttm,
+            eps_five_years=eps_five_years,
+            pe_ratio=pe_ratio
         )

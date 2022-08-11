@@ -9,7 +9,9 @@ class ValuationResult:
                  current_price: float,
                  valuation_price: float,
                  annual_dividend_percentage: float,
-                 purchased_price: float = None):
+                 eps_ttm: float,
+                 eps_five_years: float,
+                 pe_ratio: float):
         self.symbol = symbol
         self.company_name = company_name
         self.current_price = current_price
@@ -17,4 +19,6 @@ class ValuationResult:
         self.absolute_current_v_valuation_delta = 1 - (min(valuation_price, current_price) / max(valuation_price, current_price))
         self.is_overvalued = valuation_price < current_price
         self.annual_dividend_percentage = annual_dividend_percentage
-        self.purchased_price = purchased_price
+        self.eps_ttm = eps_ttm
+        self.eps_five_years = eps_five_years
+        self.pe_ratio = pe_ratio
