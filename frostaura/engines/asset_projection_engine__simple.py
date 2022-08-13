@@ -67,4 +67,12 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
             'balance': list()
         }
 
+        for month_index in range(0, n_months + 1):
+            data['month'].append(month_index)
+            data['deposits_withdrawals'].append(sum([p.loc[month_index]['deposits_withdrawals'] for p in projections]))
+            data['interest'].append(0)
+            data['total_deposits_withdrawals'].append(sum([p.loc[month_index]['total_deposits_withdrawals'] for p in projections]))
+            data['accrued_interest'].append(sum([p.loc[month_index]['accrued_interest'] for p in projections]))
+            data['balance'].append(sum([p.loc[month_index]['balance'] for p in projections]))
+
         return pd.DataFrame(data)
