@@ -37,4 +37,34 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
             data['total_deposits_withdrawals'].append(data['total_deposits_withdrawals'][-1] + monthly_deposit)
             data['balance'].append(data['interest'][-1] + data['balance'][-1] + monthly_deposit)
 
+        response: pd.DataFrame = pd.DataFrame(data)
+
+        return response.set_index('month')
+
+    def project_monthly_holdings_growth(self,
+                                   n_months: int,
+                                   annual_growth_rates: list,
+                                   principal_values: list,
+                                   monthly_deposits: list) -> pd.DataFrame:
+        '''Determine a comprehensive holdings growth at a given annual rates over a specified numbers of months while applying a monthly deposits.'''
+
+        projections: list = list()
+
+        for month_index in range(len(annual_growth_rates)):
+            projection = self.project_monthly_asset_growth(n_months=n_months,
+                                                           annual_growth_rate=annual_growth_rates[month_index],
+                                                           principal_value=principal_values[month_index],
+                                                           monthly_deposit=monthly_deposits[month_index])
+
+            projections.append(projection)
+
+        data = {
+            'month': list(),
+            'deposits_withdrawals': list(),
+            'interest': list(),
+            'total_deposits_withdrawals': list(),
+            'accrued_interest': list(),
+            'balance': list()
+        }
+
         return pd.DataFrame(data)
