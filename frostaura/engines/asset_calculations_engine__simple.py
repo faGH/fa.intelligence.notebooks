@@ -12,7 +12,7 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
         self.public_asset_data_access = public_asset_data_access
         self.config = config
 
-    def interpolate_holdings_profits(self, holdings: pd.DataFrame) -> pd.DataFrame:
+    def calculate_holdings_profits(self, holdings: pd.DataFrame) -> pd.DataFrame:
         '''Determine individual asset profit ratio & profit USD and interpolate them into a copy of the given holdings.'''
 
         holding_names: list = holdings['name'].value_counts().index.values
@@ -61,7 +61,7 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
 
         debug('Calculating overall holdings profits.')
 
-        holdings_profits: pd.DataFrame = self.interpolate_holdings_profits(holdings=holdings)
+        holdings_profits: pd.DataFrame = self.calculate_holdings_profits(holdings=holdings)
         total_purchased_usd: float = holdings_profits['total_purchased_usd'].sum()
         total_current_usd: float = holdings_profits['total_current_usd'].sum()
         total_profit_ratio: float = (1 - min(total_purchased_usd, total_current_usd) / max(total_purchased_usd, total_current_usd)) * 100
