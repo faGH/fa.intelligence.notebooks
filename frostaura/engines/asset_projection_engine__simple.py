@@ -6,6 +6,9 @@ from frostaura.engines.asset_projection_engine import IAssetProjectionEngine
 class SimpleAssetProjectionEngine(IAssetProjectionEngine):
     '''Calculations-related functionality using some maths under-the-hood.'''
 
+    def __init__(self, config: dict = {}):
+        self.config = config
+
     def project_monthly_asset_growth(self,
                                      n_months: int,
                                      annual_growth_rate: float,

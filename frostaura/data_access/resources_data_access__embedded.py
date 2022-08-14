@@ -1,12 +1,14 @@
 '''This module defines embedded resources data access component.'''
 from typing import BinaryIO
 from logging import info
-import os
 import inspect
 from frostaura.data_access.resources_data_access import IResourcesDataAccess
 
 class EmbeddedResourcesDataAccess(IResourcesDataAccess):
     '''Component to perform embedded resource related actions.'''
+
+    def __init__(self, config: dict = {}):
+        self.config = config
 
     def get_resource(self, path: str) -> BinaryIO:
         '''Get a resource as a byte stream that was embedded in a given package.'''

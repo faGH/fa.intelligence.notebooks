@@ -7,6 +7,9 @@ from frostaura.data_access.public_asset_data_access import IPublicAssetDataAcces
 class YahooFinanceDataAccess(IPublicAssetDataAccess):
     '''Yahoo Finance public asset-related functionality.'''
 
+    def __init__(self, config: dict = {}):
+        self.config = config
+
     def get_symbol_history(self, symbol: str) -> pd.DataFrame:
         '''Get historical price movements for a given symbol.'''
 

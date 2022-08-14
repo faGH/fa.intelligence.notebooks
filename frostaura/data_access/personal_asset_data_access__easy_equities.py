@@ -2,6 +2,7 @@
 from datetime import datetime
 from logging import debug, info
 import json
+import pandas as pd
 from easy_equities_client.clients import EasyEquitiesClient
 from easy_equities_client.accounts.types import Account
 from frostaura.data_access.resources_data_access import IResourcesDataAccess
@@ -10,11 +11,12 @@ from frostaura.data_access.personal_asset_data_access import IPersonalAssetDataA
 class EasyEquitiesPersonalAssetDataAccess(IPersonalAssetDataAccess):
     '''EasyEquities-related functionality.'''
 
-    def __init__(self, resource_data_access: IResourcesDataAccess, username: str, password: str):
+    def __init__(self, resource_data_access: IResourcesDataAccess, username: str, password: str, config: dict = {}):
         self.resource_data_access = resource_data_access
         self.client = EasyEquitiesClient()
         self.username = username
         self.password = password
+        self.config = config
 
     def __get_accounts__(self) -> list:
         info(f'Signing into EasyEquities as "{self.username}".')
@@ -40,44 +42,28 @@ class EasyEquitiesPersonalAssetDataAccess(IPersonalAssetDataAccess):
         info(f'Getting account valuation for account "{account.name}" ({account.id}).')
         return self.client.accounts.valuations(account.id)
 
-    def get_supported_assets(self) -> list:
+    def get_supported_assets(self) -> pd.DataFrame:
         '''Get all supported asset names and symbols.'''
 
         info('Fetching EasyEquities supported symbols from a static source.')
 
         with self.resource_data_access.get_resource(path='easy_equities_us_stocks.json') as file:
-            return json.load(file)
+            company_names_symbols: list = json.load(file)
+            data: dict = {
+                'name': [c[0] for c in company_names_symbols],
+                'symbol': [c[1] for c in company_names_symbols],
+            }
 
-    def get_personal_transactions(self) -> list:
+            return pd.DataFrame(data)
+
+    def get_personal_transactions(self) -> pd.DataFrame:
         '''Get all personal transactions made on an EasyEquities account.'''
 
-        return {
-            'TSLA': {
-                'name': 'Tesla Inc.',
-                'symbol': 'TSLA',
-                'transactions': [
-                    { 'value': 0.0688, 'date': datetime(2022, 7, 28, 0, 0) }
-                ]
-            },
-            'AAPL': {
-                'name': 'Apple Inc.',
-                'symbol': 'AAPL',
-                'transactions': [
-                    { 'value': 0.4317, 'date': datetime(2022, 7, 1, 0, 0) }
-                ]
-            },
-            'DDD': {
-                'name': '3D Systems Corporation',
-                'symbol': 'DDD',
-                'transactions': [
-                    { 'value': 8.8925, 'date': datetime(2022, 8, 5, 0, 0) }
-                ]
-            },
-            'SBSW': {
-                'name': 'Sibanye Stillwater Ltd',
-                'symbol': 'SBSW',
-                'transactions': [
-                    { 'value': 1.1265, 'date': datetime(2022, 8, 5, 0, 0) }
-                ]
-            },
-        }
+        data: list = [
+            ['Tesla Inc.', 'TSLA', 0.0688, datetime(2022, 7, 28, 0, 0)],
+            ['Apple Inc.', 'AAPL', 0.4317, datetime(2022, 7, 1, 0, 0)],
+            ['3D Systems Corporation', 'DDD', 8.8925, datetime(2022, 8, 5, 0, 0)],
+            ['Sibanye Stillwater Ltd', 'SBSW', 1.1265, datetime(2022, 8, 5, 0, 0)],
+        ]
+
+        return pd.DataFrame(data, columns =['name', 'symbol', 'shares', 'date']).set_index('date')

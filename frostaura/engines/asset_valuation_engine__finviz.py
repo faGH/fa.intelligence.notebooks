@@ -7,8 +7,9 @@ from frostaura.engines.asset_valuation_engine import IAssetValuationEngine
 class FinvizAssetValuationEngine(IAssetValuationEngine):
     '''Valuation-related functionality using Finviz under-the-hood.'''
 
-    def __init__(self, html_data_access: IResourcesDataAccess):
+    def __init__(self, html_data_access: IResourcesDataAccess, config: dict = {}):
         self.html_data_access = html_data_access
+        self.config = config
 
     def __determine_intrinsic_value__(self,
                                       eps_ttm: float, # Total trailing annual earnings per share.
@@ -53,11 +54,6 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
                                     .find(text='P/E')
                                     .find_next(class_='snapshot-td2')
                                     .text)
-        forward_pe_ratio: float = float(symbol_summary_html
-                                            .find(text='Forward P/E')
-                                            .find_next(class_='snapshot-td2')
-                                            .text)
-        avg_pe_ratio: float = (pe_ratio + forward_pe_ratio) / 2
         current_price: float = float(symbol_summary_html
                                         .find(text='Price')
                                         .find_next(class_='snapshot-td2')
@@ -73,11 +69,11 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
             annual_dividend_percentage = float(annual_dividend_percentage_str)
 
         debug(f'EPS: {eps_ttm}, EPS Next 5 Years: {eps_five_years}%')
-        debug(f'P/E Ratio: {avg_pe_ratio}, Current Price: $ {current_price}')
+        debug(f'P/E Ratio: {pe_ratio}, Current Price: $ {current_price}')
 
         intrinsic_value: float = self.__determine_intrinsic_value__(eps_ttm=eps_ttm,
                             growth_rate=eps_five_years,
-                            pe_ratio=avg_pe_ratio,
+                            pe_ratio=pe_ratio,
                             margin_of_safety=0.3)
 
         debug(f'Intrinsic Value: $ {intrinsic_value} vs. Current Price: $ {current_price}')
