@@ -5,4 +5,5 @@ class VisualizationType(Enum):
     '''A collection of supported visualization types.'''
 
     LINE = 0
-    BAR = 1
+    PIE = 1
+    BAR = 2

@@ -51,7 +51,8 @@ class FrostAuraVisualizationEngine(IVisualizationEngine):
             'lines.linewidth': line_width,
             'grid.linewidth': grid_line_width
         })
-        fig, axs = plt.subplots(1, dpi=300, figsize=(8, 4))
+        figsize = (4,4) if graph_type == VisualizationType.PIE else (8, 4)
+        fig, axs = plt.subplots(1, dpi=300, figsize=figsize)
 
         if line_label is not None and y_tick_format_str is not None:
             if not type(line_label) == str:
@@ -62,6 +63,11 @@ class FrostAuraVisualizationEngine(IVisualizationEngine):
         elif graph_type == VisualizationType.BAR:
             raise NotImplementedError('Bar plots have outstanding styling issues and is not yet supported.')
             #sns.barplot(x=x, y=y, data=data, ci=False, color=fa_dark, ax=axs, label=line_label)
+        elif graph_type == VisualizationType.PIE:
+            labels: list = data[x].values
+            values: list = data[y].values
+
+            plt.pie(x=values, labels=labels)
         else:
             raise NotImplementedError(f'The figure type "{graph_type}" is not supported.')
 
