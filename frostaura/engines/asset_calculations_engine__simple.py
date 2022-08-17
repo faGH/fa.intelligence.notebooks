@@ -12,6 +12,30 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
         self.public_asset_data_access = public_asset_data_access
         self.config = config
 
+    def __calculate_holdings_ratios__(self, holdings: pd.DataFrame) -> pd.DataFrame:
+        '''Determine the ratios that each asset makes up of the overall portfolio adding up to 1.'''
+
+        def determine_usd(row: dict) -> float:
+            history: pd.DataFrame = self.public_asset_data_access.get_symbol_history(symbol=row['symbol'])
+
+            return row['shares'] * history.loc[row.name].Close
+
+        holdings_with_usd: pd.DataFrame = holdings.copy()
+        holdings_with_usd['usd'] = holdings.apply(determine_usd, axis=1)
+        grouped_holdings: pd.DataFrame = holdings_with_usd.groupby(['name', 'symbol'], as_index=False).sum()
+        holding_names: list = grouped_holdings['name'].value_counts().index.values
+        holding_symbols: list = grouped_holdings['symbol'].value_counts().index.values
+        data: dict = {
+            'name': holding_names,
+            'symbol': holding_symbols,
+            'ratio': list()
+        }
+
+        for row_index, row in grouped_holdings.iterrows():
+            data['ratio'].append(row['usd'] / grouped_holdings['usd'].sum())
+
+        return pd.DataFrame(data)
+
     def calculate_holdings_profits(self, holdings: pd.DataFrame) -> pd.DataFrame:
         '''Determine individual asset profit ratio & profit USD and interpolate them into a copy of the given holdings.'''
 
@@ -24,7 +48,7 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
             'total_purchased_shares': list(),
             'total_current_usd': list(),
             'total_profit_ratio': list(),
-            'total_profit_usd': list(),
+            'total_profit_usd': list()
         }
 
         for holding_symbol in holding_symbols:
@@ -54,7 +78,9 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
             data['total_profit_ratio'].append((1 - min(total_purchased_usd, total_current_usd) / max(total_purchased_usd, total_current_usd)) * 100)
             data['total_profit_usd'].append(total_current_usd - total_purchased_usd)
 
-        return pd.DataFrame(data)
+        ratios: pd.DataFrame = self.__calculate_holdings_ratios__(holdings=holdings)
+
+        return pd.DataFrame(data).set_index('symbol').join(other=ratios.drop(columns=['name']).set_index('symbol')).reset_index()
 
     def calculate_holdings_profit(self, holdings: pd.DataFrame) -> ProfitCalculationResult:
         '''Determine the holdings profit percentage & profit USD, given the holdings.'''
@@ -68,27 +94,3 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
         total_profit_usd: float = total_current_usd - total_purchased_usd
 
         return ProfitCalculationResult(percentage=total_profit_ratio, value=total_profit_usd)
-
-    def calculate_holdings_ratios(self, holdings: pd.DataFrame) -> pd.DataFrame:
-        '''Determine the ratios that each asset makes up of the overall portfolio adding up to 1.'''
-
-        def determine_usd(row: dict) -> float:
-            history: pd.DataFrame = self.public_asset_data_access.get_symbol_history(symbol=row['symbol'])
-
-            return row['shares'] * history.loc[row.name].Close
-
-        holdings_with_usd: pd.DataFrame = holdings.copy()
-        holdings_with_usd['usd'] = holdings.apply(determine_usd, axis=1)
-        grouped_holdings: pd.DataFrame = holdings_with_usd.groupby(['name', 'symbol'], as_index=False).sum()
-        holding_names: list = grouped_holdings['name'].value_counts().index.values
-        holding_symbols: list = grouped_holdings['symbol'].value_counts().index.values
-        data: dict = {
-            'name': holding_names,
-            'symbol': holding_symbols,
-            'ratio': list()
-        }
-
-        for row_index, row in grouped_holdings.iterrows():
-            data['ratio'].append(row['usd'] / grouped_holdings['usd'].sum())
-
-        return pd.DataFrame(data)
