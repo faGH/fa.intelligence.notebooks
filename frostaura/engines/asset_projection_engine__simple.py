@@ -149,7 +149,7 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
             if projections.shape[0] <= 0:
                 break
 
-            data['Target Balance (USD)'].append(f'{projections.iloc[0]["balance"]:.2f}')
+            data['Target Balance (USD)'].append(projections.iloc[0]["balance"])
             data['Target Balance Eng (USD)'].append(self.inflect_engine.number_to_words(projections.iloc[0]["balance"]))
             data['ETA (Months)'].append(projections.index[0])
             data['ETA (Years)'].append(projections.index[0] / 12)
