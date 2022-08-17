@@ -37,7 +37,7 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
 
         return target_share_price / (1 + margin_of_safety)
 
-    def valuate(self, symbol: str, company_name: str) -> ValuationResult:
+    def valuate(self, symbol: str) -> ValuationResult:
         '''Valuate a given asset.'''
 
         symbol_summary_url: str = f'https://finviz.com/quote.ashx?t={symbol}'
@@ -64,6 +64,7 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
                                             .find_next(class_='snapshot-td2')
                                             .text
                                             .split('%')[0])
+        company_name: str = (symbol_summary_html.select_one('.fullview-title a b').text)
 
         if '-' not in annual_dividend_percentage_str:
             annual_dividend_percentage = float(annual_dividend_percentage_str)
