@@ -27,7 +27,7 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
 
         valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=symbol)
         annual_growth_rate: float = valuation.eps_five_years
-        divident_payout_frequency_in_months: int = None # TODO: Determine this from YahooFinance (public_asset_data_access.get_dividend_payout_frequency_in_months)
+        divident_payout_frequency_in_months: int = valuation.divident_payout_frequency_in_months
         data = {
             'month': list(),
             'deposits_withdrawals': list(),
@@ -47,12 +47,14 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
         for i in range(1, n_months + 1):
             data['month'].append(i)
             data['deposits_withdrawals'].append(monthly_deposit)
-            data['interest'].append((annual_growth_rate / 12) * data['balance'][-1])
+            
+            interest: float = (annual_growth_rate / 12) * data['balance'][-1]
 
-            if divident_payout_frequency_in_months is not None and i % divident_payout_frequency_in_months == 0:
+            if divident_payout_frequency_in_months > 0 and i % divident_payout_frequency_in_months == 0:
                 annual_dividend_rate: float = valuation.annual_dividend_percentage / 100
-                data['interest'].append((annual_dividend_rate / 12 / divident_payout_frequency_in_months) * data['balance'][-1])
+                interest += (annual_dividend_rate / 12 / divident_payout_frequency_in_months) * data['balance'][-1]
 
+            data['interest'].append(interest)
             data['accrued_interest'].append(data['accrued_interest'][-1] + data['interest'][-1])
             data['total_deposits_withdrawals'].append(data['total_deposits_withdrawals'][-1] + monthly_deposit)
             data['balance'].append(data['interest'][-1] + data['balance'][-1] + monthly_deposit)

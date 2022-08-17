@@ -11,7 +11,8 @@ class ValuationResult:
                  annual_dividend_percentage: float,
                  eps_ttm: float,
                  eps_five_years: float,
-                 pe_ratio: float):
+                 pe_ratio: float,
+                 divident_payout_frequency_in_months: int):
         self.symbol = symbol
         self.company_name = company_name
         self.current_price = current_price
@@ -22,3 +23,4 @@ class ValuationResult:
         self.eps_ttm = eps_ttm
         self.eps_five_years = eps_five_years
         self.pe_ratio = pe_ratio
+        self.divident_payout_frequency_in_months = divident_payout_frequency_in_months

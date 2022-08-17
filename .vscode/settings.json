@@ -9,7 +9,8 @@
         "**/__pycache__": true,
         "*.egg*/**": true,
         "build/**": true,
-        "dist/**": true
+        "dist/**": true,
+        "**/examples/**/*.csv": true
     },
     "python.analysis.extraPaths": [
         "./components"

@@ -10,3 +10,4 @@ data/*.pt
 build/**
 *.egg-info/**
 dist/**
+examples/engines/*.csv

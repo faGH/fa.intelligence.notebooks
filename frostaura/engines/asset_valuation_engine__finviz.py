@@ -1,5 +1,9 @@
 '''This module defines valuation engine components.'''
 from logging import debug
+import time
+import requests
+import pandas as pd
+from datetime import datetime
 from frostaura.data_access import IResourcesDataAccess
 from frostaura.models.valuation_result import ValuationResult
 from frostaura.engines.asset_valuation_engine import IAssetValuationEngine
@@ -36,6 +40,34 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
             target_share_price /= (1 + growth_rate)
 
         return target_share_price / (1 + margin_of_safety)
+
+    def __determine_divident_payout_frequency_in_months__(self, symbol: str) -> int:
+        epoch_now: int = int(time.time())
+        url: str = f'https://query1.finance.yahoo.com/v7/finance/download/{symbol}?period1=1502928000&period2={epoch_now}&interval=1d&events=div&includeAdjustedClose=true'
+        response: requests.Response = requests.get(url, headers={
+            'User-Agent': 'PostmanRuntime/7.29.0'
+        })
+        file_name: str = f'{symbol}_dividend_history.csv'
+
+        with open(file_name, 'wb') as f:
+            f.write(response.content)
+
+        now: datetime = datetime.now()
+        start_period: datetime = datetime(year=now.year-1, month=1, day=1)
+        end_period: datetime = datetime(year=now.year, month=1, day=1)
+        dividend_history = pd.read_csv(file_name)
+        dividend_history['Date'] = pd.to_datetime(dividend_history['Date'])
+        dividends_paid_annually: int = dividend_history \
+            .loc[dividend_history['Date'] >= start_period] \
+            .loc[dividend_history['Date'] < end_period] \
+            .shape[0]
+
+        if dividends_paid_annually <= 0:
+            return 0
+
+        divident_payout_frequency_in_months: int = 12 / dividends_paid_annually
+
+        return int(divident_payout_frequency_in_months)
 
     def valuate(self, symbol: str) -> ValuationResult:
         '''Valuate a given asset.'''
@@ -87,5 +119,6 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
             annual_dividend_percentage=annual_dividend_percentage,
             eps_ttm=eps_ttm,
             eps_five_years=eps_five_years,
-            pe_ratio=pe_ratio
+            pe_ratio=pe_ratio,
+            divident_payout_frequency_in_months=self.__determine_divident_payout_frequency_in_months__(symbol=symbol)
         )
