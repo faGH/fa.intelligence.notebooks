@@ -6,7 +6,7 @@ class IAssetProjectionEngine:
 
     def project_monthly_asset_growth(self,
                                    n_months: int,
-                                   annual_growth_rate: float,
+                                   symbol: str,
                                    principal_value: float,
                                    monthly_deposit: float) -> pd.DataFrame:
         '''Determine an asset's growth at a given annual rate over a specified number of months while applying a monthly deposit.'''
@@ -15,8 +15,7 @@ class IAssetProjectionEngine:
 
     def project_monthly_holdings_growth(self,
                                    n_months: int,
-                                   annual_growth_rates: list,
-                                   principal_values: list,
+                                   holdings_with_profits: pd.DataFrame,
                                    monthly_deposits: list) -> pd.DataFrame:
         '''Determine a comprehensive holdings growth at a given annual rates over a specified numbers of months while applying a monthly deposits.'''
 
