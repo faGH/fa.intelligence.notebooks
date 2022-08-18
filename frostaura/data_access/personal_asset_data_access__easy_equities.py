@@ -64,6 +64,8 @@ class EasyEquitiesPersonalAssetDataAccess(IPersonalAssetDataAccess):
             ['Apple Inc.', 'AAPL', 0.4317, datetime(2022, 7, 1, 0, 0)],
             ['3D Systems Corporation', 'DDD', 8.8925, datetime(2022, 8, 5, 0, 0)],
             ['Sibanye Stillwater Ltd', 'SBSW', 1.1265, datetime(2022, 8, 5, 0, 0)],
+            ['Sibanye Stillwater Ltd', 'SBSW', 6.5243, datetime(2022, 8, 18, 0, 0)],
+            ['3D Systems Corporation', 'DDD', 5.2957, datetime(2022, 8, 18, 0, 0)]
         ]
 
         return pd.DataFrame(data, columns =['name', 'symbol', 'shares', 'date']).set_index('date')
