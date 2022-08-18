@@ -12,6 +12,7 @@ class IVisualizationEngine:
                    y: str,
                    graph_type: VisualizationType,
                    title: str,
+                   subtitle: str,
                    legend: bool,
                    line_label: str,
                    x_tick_format_str: str,

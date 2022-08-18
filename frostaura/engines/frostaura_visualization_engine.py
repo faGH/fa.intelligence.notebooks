@@ -15,6 +15,7 @@ class FrostAuraVisualizationEngine(IVisualizationEngine):
                    y: str,
                    graph_type: VisualizationType,
                    title: str=None,
+                   subtitle: str=None,
                    legend: bool=False,
                    line_label: str=None,
                    x_tick_format_str: str=None,
@@ -74,6 +75,9 @@ class FrostAuraVisualizationEngine(IVisualizationEngine):
         if title is not None:
             mid = (fig.subplotpars.right + fig.subplotpars.left)/2
             fig.suptitle(title, x=mid)
+
+        if subtitle is not None:
+            axs.set_title(subtitle)
 
         if y_tick_format_str is not None:
             tick = mtick.StrMethodFormatter(y_tick_format_str)
