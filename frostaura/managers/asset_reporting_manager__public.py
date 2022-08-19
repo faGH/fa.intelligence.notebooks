@@ -43,7 +43,7 @@ class PublicAssetReportingManager(IAssetReportingManager):
                              key=lambda i: i['valuation'].absolute_current_v_valuation_delta,
                              reverse=True)[:top]
 
-        self.public_notification_data_access.send_text(text=f'Top <i>{top}</i> <strong>Value</strong> Assets <i>better viewed horizontally.</i>')
+        self.public_notification_data_access.send_text(text=f'Top <i>{top}</i> EasyEquities <strong>Value</strong> Assets <i>better viewed horizontally.</i>')
         assets_table: dict = {
             'Symbol': [],
             'Close': [],
