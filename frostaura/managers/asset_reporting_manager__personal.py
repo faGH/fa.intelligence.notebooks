@@ -24,7 +24,6 @@ class PersonalAssetReportingManager(IAssetReportingManager):
                  asset_projection_engine: IAssetProjectionEngine,
                  visualization_engine: IVisualizationEngine,
                  personal_notification_data_access: INotificationsDataAccess,
-                 public_notification_data_access: INotificationsDataAccess,
                  public_asset_data_access: IPublicAssetDataAccess,
                  config: dict = {}):
         self.personal_asset_data_access = personal_asset_data_access
@@ -33,7 +32,6 @@ class PersonalAssetReportingManager(IAssetReportingManager):
         self.asset_projection_engine = asset_projection_engine
         self.visualization_engine = visualization_engine
         self.personal_notification_data_access = personal_notification_data_access
-        self.public_notification_data_access = public_notification_data_access
         self.public_asset_data_access = public_asset_data_access
         self.config = config
 
@@ -179,11 +177,6 @@ class PersonalAssetReportingManager(IAssetReportingManager):
         usd_zar_exchange_rate: float = 16.17
         monthly_zar_deposit: float = 2000
         monthly_deposits: float = [(monthly_zar_deposit / usd_zar_exchange_rate / len(holdings_with_profits)) for h in holdings_with_profits]
-
-        # Generate detailed asset report.
-        ## Graph for each with prices since when we first bought
-        ### Indicating each buy (and by color, if we have made a profit on that particular position)
-        ## Current profits (in a table for all)
 
         self.__send_holdings_report__(holdings=holdings)
         self.__send_holdings_pie_chart__(holdings_with_profits=holdings_with_profits)
