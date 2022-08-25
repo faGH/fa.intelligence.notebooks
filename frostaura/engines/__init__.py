@@ -8,3 +8,4 @@ from frostaura.engines.asset_projection_engine import IAssetProjectionEngine
 from frostaura.engines.asset_projection_engine__simple import SimpleAssetProjectionEngine
 from frostaura.engines.visualization_engine import IVisualizationEngine
 from frostaura.engines.frostaura_visualization_engine import FrostAuraVisualizationEngine
+from frostaura.engines.asset_valuation_engine__dfcf import DiscountedFutureCashFlowAssetValuationEngine
