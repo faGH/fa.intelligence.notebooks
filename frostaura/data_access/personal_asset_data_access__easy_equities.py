@@ -65,7 +65,9 @@ class EasyEquitiesPersonalAssetDataAccess(IPersonalAssetDataAccess):
             ['3D Systems Corporation', 'DDD', 8.8925, datetime(2022, 8, 5, 0, 0)],
             ['Sibanye Stillwater Ltd', 'SBSW', 1.1265, datetime(2022, 8, 5, 0, 0)],
             ['Sibanye Stillwater Ltd', 'SBSW', 6.5243, datetime(2022, 8, 18, 0, 0)],
-            ['3D Systems Corporation', 'DDD', 5.2957, datetime(2022, 8, 18, 0, 0)]
+            ['3D Systems Corporation', 'DDD', 5.2957, datetime(2022, 8, 18, 0, 0)],
+            ['SPDR S&P 500 ETF', 'SPY', 0.0829, datetime(2022, 8, 22, 0, 0)],
+            ['3D Systems Corporation', 'DDD', 2.317, datetime(2022, 8, 22, 0, 0)]
         ]
 
         return pd.DataFrame(data, columns =['name', 'symbol', 'shares', 'date']).set_index('date')
