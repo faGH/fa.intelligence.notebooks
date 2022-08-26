@@ -19,14 +19,12 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
                                       eps_ttm: float, # Total trailing annual earnings per share.
                                       growth_rate: float, # Projected 5 year EPS.
                                       pe_ratio: float, # Price per earnings growth rate. 2x growth_rate if unsure.
-                                      min_rate_of_return: float = 0.15, # Rate of return we want to make.
-                                      margin_of_safety: float = 0.3 # Margin to padd our valuation with in order to mitigate risk. 20-50% usually.
+                                      min_rate_of_return: float = 0.15 # Rate of return we want to make.
                               ) -> float:
         assert eps_ttm > 1
         assert growth_rate > 0 and growth_rate < 1
         assert pe_ratio > 1
         assert min_rate_of_return > 0 and min_rate_of_return < 1
-        assert margin_of_safety > 0 and margin_of_safety < 1
 
         target_ten_year_eps: float = eps_ttm
 
@@ -39,7 +37,7 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
         for year in range(2, 11):
             target_share_price /= (1 + growth_rate)
 
-        return target_share_price / (1 + margin_of_safety)
+        return target_share_price
 
     def __determine_divident_payout_frequency_in_months__(self, symbol: str) -> int:
         epoch_now: int = int(time.time())
@@ -106,8 +104,7 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
 
         intrinsic_value: float = self.__determine_intrinsic_value__(eps_ttm=eps_ttm,
                             growth_rate=eps_five_years,
-                            pe_ratio=pe_ratio,
-                            margin_of_safety=0.3)
+                            pe_ratio=pe_ratio)
 
         debug(f'Intrinsic Value: $ {intrinsic_value} vs. Current Price: $ {current_price}')
 
@@ -115,6 +112,8 @@ class FinvizAssetValuationEngine(IAssetValuationEngine):
             symbol=symbol,
             company_name=company_name,
             current_price=current_price,
+            valuation_method='rain_valuation',
+            margin_of_safety=0.3,
             valuation_price=intrinsic_value,
             annual_dividend_percentage=annual_dividend_percentage,
             eps_ttm=eps_ttm,

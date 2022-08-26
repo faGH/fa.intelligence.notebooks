@@ -10,11 +10,11 @@ from frostaura.models.valuation_result import ValuationResult
 from frostaura.models.symbol_data import SymbolData
 from frostaura.engines.asset_valuation_engine import IAssetValuationEngine
 
-class DiscountedFutureCashFlowAssetValuationEngine(IAssetValuationEngine):
+class GrahamValuationEngine(IAssetValuationEngine):
     '''Valuation-related functionality using the discounted free cash flow method.'''
-    years_to_project: int = 5
-    discount_rate: float = 0.1
-    perpetual_growth_rate: float = 0.03
+    pe_base_non_growth_company: float = 8.5
+    average_yield_of_aaa_corporate_bonds: float = 4.4
+    current_yield_of_aaa_corporate_bonds: float = 4.27
     margin_of_safety: float = 0.3
 
     def __init__(self, html_data_access: IResourcesDataAccess, public_asset_data_access: IPublicAssetDataAccess, config: dict = {}):
@@ -23,39 +23,14 @@ class DiscountedFutureCashFlowAssetValuationEngine(IAssetValuationEngine):
         self.config = config
 
     def __determine_intrinsic_value__(self,
-                                      symbol_data: SymbolData,
-                                      years_to_project: int,
-                                      discount_rate: float,
-                                      perpetual_growth_rate: float) -> float:
-        assert symbol_data is not None
-        assert years_to_project is not None and years_to_project > 0
-        assert discount_rate is not None and discount_rate > 0
-        assert perpetual_growth_rate is not None and perpetual_growth_rate > 0
+                                      eps: float,
+                                      pe_base_non_growth_company: float,
+                                      annual_growth_projected: float,
+                                      average_yield_of_aaa_corporate_bonds: float,
+                                      current_yield_of_aaa_corporate_bonds: float) -> float:
+        value: float = eps * (pe_base_non_growth_company + 2 * annual_growth_projected) * average_yield_of_aaa_corporate_bonds / current_yield_of_aaa_corporate_bonds
 
-        future_values: list = [ symbol_data.free_cash_flow * (1 + symbol_data.future_growth_rate) ]
-        future_discount_factors: list = [ 1 + discount_rate ]
-
-        # Calculate for all years.
-        for year in range(2, years_to_project + 1):
-            future_values.append(future_values[-1] * (1 + symbol_data.future_growth_rate))
-            future_discount_factors.append(future_discount_factors[-1] * (1 + discount_rate))
-
-        # Calculate for terminal values.
-        future_values.append(future_values[-1] * (1 + perpetual_growth_rate) / (discount_rate - perpetual_growth_rate))
-        future_discount_factors.append(future_discount_factors[-1])
-        combined_present_value: float = 0
-
-        for i in range(len(future_values)):
-            combined_present_value += future_values[i] / future_discount_factors[i]
-            
-        print(f'Combined: {combined_present_value}')
-        print(f'future_growth_rate: {symbol_data.future_growth_rate}')
-        print(f'perpetual_growth_rate: {perpetual_growth_rate}')
-        print(f'free_cash_flow: {symbol_data.free_cash_flow}')
-        print(f'future_values: {future_values}')
-        print(f'future_discount_factors: {future_discount_factors}')
-
-        return  combined_present_value / symbol_data.shares_outstanding
+        return value
 
     def __determine_divident_payout_frequency_in_months__(self, symbol: str) -> int:
         epoch_now: int = int(time.time())
@@ -89,9 +64,9 @@ class DiscountedFutureCashFlowAssetValuationEngine(IAssetValuationEngine):
         '''Valuate a given asset.'''
 
         # Get values from the config passed in if applicable otherwise fall back to defaults specified in this class.
-        years_to_project: int = self.config['years_to_project'] if 'years_to_project' in self.config else self.years_to_project
-        discount_rate: float = self.config['discount_rate'] if 'discount_rate' in self.config else self.discount_rate
-        perpetual_growth_rate: float = self.config['perpetual_growth_rate'] if 'perpetual_growth_rate' in self.config else self.perpetual_growth_rate
+        pe_base_non_growth_company: float = self.config['pe_base_non_growth_company'] if 'pe_base_non_growth_company' in self.config else self.pe_base_non_growth_company
+        average_yield_of_aaa_corporate_bonds: float = self.config['average_yield_of_aaa_corporate_bonds'] if 'average_yield_of_aaa_corporate_bonds' in self.config else self.average_yield_of_aaa_corporate_bonds
+        current_yield_of_aaa_corporate_bonds: float = self.config['current_yield_of_aaa_corporate_bonds'] if 'current_yield_of_aaa_corporate_bonds' in self.config else self.current_yield_of_aaa_corporate_bonds
         margin_of_safety: float = self.config['margin_of_safety'] if 'margin_of_safety' in self.config else self.margin_of_safety
 
         # Values required from a public source.
@@ -126,21 +101,25 @@ class DiscountedFutureCashFlowAssetValuationEngine(IAssetValuationEngine):
             annual_dividend_percentage = float(annual_dividend_percentage_str)
 
         debug(f'EPS: {eps_ttm}, EPS Next 5 Years: {eps_five_years}%')
-        debug(f'P/E Ratio: {pe_ratio}, Current Price: $ {current_price}')
+        debug(f'pe_base_non_growth_company: {pe_base_non_growth_company}')
+        debug(f'annual_growth_projected: {symbol_data.future_growth_rate*100}')
+        debug(f'average_yield_of_aaa_corporate_bonds: {average_yield_of_aaa_corporate_bonds}')
+        debug(f'current_yield_of_aaa_corporate_bonds: {current_yield_of_aaa_corporate_bonds}')
 
-        intrinsic_value: float = self.__determine_intrinsic_value__(symbol_data=symbol_data,
-                                                                    years_to_project=years_to_project,
-                                                                    discount_rate=discount_rate,
-                                                                    perpetual_growth_rate=perpetual_growth_rate)
+        intrinsic_value: float = self.__determine_intrinsic_value__(eps=eps_ttm,
+                                                                    pe_base_non_growth_company=pe_base_non_growth_company,
+                                                                    annual_growth_projected=symbol_data.future_growth_rate*100,
+                                                                    average_yield_of_aaa_corporate_bonds=average_yield_of_aaa_corporate_bonds,
+                                                                    current_yield_of_aaa_corporate_bonds=current_yield_of_aaa_corporate_bonds)
 
-        debug(f'Intrinsic Value: $ {intrinsic_value} vs. Current Price: $ {current_price} based on the discounted future free cash flow method.')
+        debug(f'Intrinsic Value: $ {intrinsic_value} vs. Current Price: $ {current_price} based on the Benjamin Graham valuation method.')
 
         return ValuationResult(
             symbol=symbol,
             company_name=company_name,
             current_price=current_price,
             valuation_price=intrinsic_value,
-            valuation_method='discounted_future_cash_flow_valuation',
+            valuation_method='benjamin_graham_valuation',
             margin_of_safety=margin_of_safety,
             annual_dividend_percentage=annual_dividend_percentage,
             eps_ttm=eps_ttm,
