@@ -74,15 +74,18 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
         symbols: list = list()
 
         for row_index, row in holdings_with_profits.iterrows():
-            symbol_valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=row['symbol'])
-            annual_growth_rate: float = symbol_valuation.eps_five_years
+            try:
+                symbol_valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=row['symbol'])
+                annual_growth_rate: float = symbol_valuation.eps_five_years
 
-            if symbol_valuation.annual_dividend_percentage is not None:
-                annual_growth_rate += (symbol_valuation.annual_dividend_percentage / 100)
+                if symbol_valuation.annual_dividend_percentage is not None:
+                    annual_growth_rate += (symbol_valuation.annual_dividend_percentage / 100)
 
-            annual_growth_rates.append(annual_growth_rate)
-            principal_values.append(row['total_current_usd'])
-            symbols.append(row['symbol'])
+                annual_growth_rates.append(annual_growth_rate)
+                principal_values.append(row['total_current_usd'])
+                symbols.append(row['symbol'])
+            except Exception:
+                pass
 
         projections: list = list()
 

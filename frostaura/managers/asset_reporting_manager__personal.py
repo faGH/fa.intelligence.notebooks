@@ -139,6 +139,10 @@ class PersonalAssetReportingManager(IAssetReportingManager):
             self.personal_notification_data_access.send_text(text=message)
 
             symbol_valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=symbol)
+
+            if symbol_valuation is None:
+                return
+
             fig, ax = self.visualization_engine.get_figure(x='Date',
                                                            y='Close',
                                                            data=history,
