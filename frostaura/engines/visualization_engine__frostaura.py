@@ -53,7 +53,7 @@ class FrostAuraVisualizationEngine(IVisualizationEngine):
             'grid.linewidth': grid_line_width
         })
         figsize = (4,4) if graph_type == VisualizationType.PIE else (8, 4)
-        fig, axs = plt.subplots(1, dpi=300, figsize=figsize)
+        fig, axs = plt.subplots(1, dpi=600, figsize=figsize)
 
         if line_label is not None and y_tick_format_str is not None:
             if not type(line_label) == str:

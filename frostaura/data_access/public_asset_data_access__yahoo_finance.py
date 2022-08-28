@@ -52,6 +52,7 @@ class YahooFinanceDataAccess(IPublicAssetDataAccess):
             annual_dividend_percentage: float = ticker.info['dividendYield']
             eps_ttm: float = ticker.info['trailingEps']
             current_price: float = ticker.info['previousClose']
+            pe_ratio: float = ticker.info['forwardPE']
             value: SymbolData = SymbolData(free_cash_flow=free_cash_flow,
                                            future_growth_rate=future_growth_rate,
                                            shares_outstanding=shares_outstanding,
@@ -59,7 +60,8 @@ class YahooFinanceDataAccess(IPublicAssetDataAccess):
                                            company_name=company_name,
                                            annual_dividend_percentage=annual_dividend_percentage,
                                            eps_ttm=eps_ttm,
-                                           current_price=current_price)
+                                           current_price=current_price,
+                                           pe_ratio=pe_ratio)
             self.__cache__[cache_key] = value
         else:
             info(f'Item for key "{cache_key}" retrieved from cache with value: {value}')

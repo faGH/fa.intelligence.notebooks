@@ -11,7 +11,8 @@ class SymbolData:
                  company_name: str,
                  annual_dividend_percentage: float,
                  eps_ttm: float,
-                 current_price: float):
+                 current_price: float,
+                 pe_ratio: float):
         self.symbol = symbol
         self.future_growth_rate = future_growth_rate
         self.free_cash_flow = free_cash_flow
@@ -20,3 +21,4 @@ class SymbolData:
         self.annual_dividend_percentage = annual_dividend_percentage
         self.eps_ttm = eps_ttm
         self.current_price = current_price
+        self.pe_ratio = pe_ratio

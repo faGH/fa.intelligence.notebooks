@@ -103,8 +103,8 @@ class GrahamValuationEngine(IAssetValuationEngine):
                 margin_of_safety=margin_of_safety,
                 annual_dividend_percentage=annual_dividend_percentage,
                 eps_ttm=eps_ttm,
-                eps_five_years=None,
-                pe_ratio=None,
+                future_growth_rate=symbol_data.future_growth_rate,
+                pe_ratio=symbol_data.pe_ratio,
                 divident_payout_frequency_in_months=self.__determine_divident_payout_frequency_in_months__(symbol=symbol)
             )
         except Exception as e:

@@ -12,7 +12,7 @@ class ValuationResult:
                  margin_of_safety: float,
                  annual_dividend_percentage: float,
                  eps_ttm: float,
-                 eps_five_years: float,
+                 future_growth_rate: float,
                  pe_ratio: float,
                  divident_payout_frequency_in_months: int):
         assert margin_of_safety > 0 and margin_of_safety < 1
@@ -27,6 +27,6 @@ class ValuationResult:
         self.is_overvalued = self.fair_price < current_price
         self.annual_dividend_percentage = annual_dividend_percentage
         self.eps_ttm = eps_ttm
-        self.eps_five_years = eps_five_years
+        self.future_growth_rate = future_growth_rate
         self.pe_ratio = pe_ratio
         self.divident_payout_frequency_in_months = divident_payout_frequency_in_months

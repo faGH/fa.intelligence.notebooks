@@ -26,7 +26,7 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
         '''Determine an asset's growth at a given annual rate over a specified number of months while applying a monthly deposit.'''
 
         valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=symbol)
-        annual_growth_rate: float = valuation.eps_five_years
+        annual_growth_rate: float = valuation.future_growth_rate
         divident_payout_frequency_in_months: int = valuation.divident_payout_frequency_in_months
         data = {
             'month': list(),
@@ -76,7 +76,7 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
         for row_index, row in holdings_with_profits.iterrows():
             try:
                 symbol_valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=row['symbol'])
-                annual_growth_rate: float = symbol_valuation.eps_five_years
+                annual_growth_rate: float = symbol_valuation.future_growth_rate
 
                 if symbol_valuation.annual_dividend_percentage is not None:
                     annual_growth_rate += (symbol_valuation.annual_dividend_percentage / 100)
