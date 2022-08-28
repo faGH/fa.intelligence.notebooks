@@ -75,36 +75,12 @@ class GrahamValuationEngine(IAssetValuationEngine):
 
             # Values required from a public source.
             symbol_data: SymbolData = self.public_asset_data_access.get_symbol_data(symbol=symbol)
-            symbol_summary_url: str = f'https://finviz.com/quote.ashx?t={symbol}'
-            symbol_summary_html: object = self.html_data_access.get_resource(path=symbol_summary_url)
-            eps_ttm: float = float(symbol_summary_html.find(text='EPS (ttm)')
-                                                                .find_next(class_='snapshot-td2')
-                                                                .text)
-            eps_five_years: float = float(symbol_summary_html
-                                            .find(text='EPS next 5Y')
-                                            .find_next(class_='snapshot-td2')
-                                            .text
-                                            .replace('%', '')) / 100
-            pe_ratio: float = float(symbol_summary_html
-                                        .find(text='P/E')
-                                        .find_next(class_='snapshot-td2')
-                                        .text)
-            current_price: float = float(symbol_summary_html
-                                            .find(text='Price')
-                                            .find_next(class_='snapshot-td2')
-                                            .text)
-            annual_dividend_percentage: float = None
-            annual_dividend_percentage_str = (symbol_summary_html
-                                                .find(text='Dividend %')
-                                                .find_next(class_='snapshot-td2')
-                                                .text
-                                                .split('%')[0])
-            company_name: str = (symbol_summary_html.select_one('.fullview-title a b').text)
+            company_name: str = symbol_data.company_name
+            annual_dividend_percentage: float = symbol_data.annual_dividend_percentage
+            eps_ttm: float = symbol_data.eps_ttm
+            current_price: float = symbol_data.current_price
 
-            if '-' not in annual_dividend_percentage_str:
-                annual_dividend_percentage = float(annual_dividend_percentage_str)
-
-            debug(f'EPS: {eps_ttm}, EPS Next 5 Years: {eps_five_years}%')
+            debug(f'EPS: {eps_ttm}')
             debug(f'pe_base_non_growth_company: {pe_base_non_growth_company}')
             debug(f'annual_growth_projected: {symbol_data.future_growth_rate*100}')
             debug(f'average_yield_of_aaa_corporate_bonds: {average_yield_of_aaa_corporate_bonds}')
@@ -127,8 +103,8 @@ class GrahamValuationEngine(IAssetValuationEngine):
                 margin_of_safety=margin_of_safety,
                 annual_dividend_percentage=annual_dividend_percentage,
                 eps_ttm=eps_ttm,
-                eps_five_years=eps_five_years,
-                pe_ratio=pe_ratio,
+                eps_five_years=None,
+                pe_ratio=None,
                 divident_payout_frequency_in_months=self.__determine_divident_payout_frequency_in_months__(symbol=symbol)
             )
         except Exception as e:

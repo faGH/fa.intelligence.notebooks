@@ -23,12 +23,12 @@ class YahooFinanceDataAccess(IPublicAssetDataAccess):
         value: pd.DataFrame = self.__cache__.get(cache_key)
 
         if value is None or ignore_cache:
-            warning(f'No item with the key "{symbol}" existed in the cache.')
+            warning(f'No item with the key "{cache_key}" existed in the cache.')
             ticker = yf.Ticker(symbol)
             value = ticker.history(period='max')
             self.__cache__[cache_key] = value
         else:
-            info(f'Item for key "{symbol}" retrieved from cache with value: {value}')
+            info(f'Item for key "{cache_key}" retrieved from cache with value: {value}')
 
         return value
 
@@ -41,19 +41,27 @@ class YahooFinanceDataAccess(IPublicAssetDataAccess):
         value: SymbolData = self.__cache__.get(cache_key)
 
         if value is None or ignore_cache:
-            warning(f'No item with the key "{symbol}" existed in the cache.')
+            warning(f'No item with the key "{cache_key}" existed in the cache.')
             ticker = yf.Ticker(symbol)
             stats = ticker.stats()
-            analysis = ticker.analysis            
+            analysis = ticker.analysis
             future_growth_rate: float = analysis.loc['+5Y']['Growth']
             shares_outstanding: float = stats['defaultKeyStatistics']['sharesOutstanding']
             free_cash_flow: float = stats['financialData']['freeCashflow']
+            company_name: str = ticker.info['longName']
+            annual_dividend_percentage: float = ticker.info['dividendYield']
+            eps_ttm: float = ticker.info['trailingEps']
+            current_price: float = ticker.info['previousClose']
             value: SymbolData = SymbolData(free_cash_flow=free_cash_flow,
                                            future_growth_rate=future_growth_rate,
                                            shares_outstanding=shares_outstanding,
-                                           symbol=symbol)
+                                           symbol=symbol,
+                                           company_name=company_name,
+                                           annual_dividend_percentage=annual_dividend_percentage,
+                                           eps_ttm=eps_ttm,
+                                           current_price=current_price)
             self.__cache__[cache_key] = value
         else:
-            info(f'Item for key "{symbol}" retrieved from cache with value: {value}')
+            info(f'Item for key "{cache_key}" retrieved from cache with value: {value}')
 
         return value

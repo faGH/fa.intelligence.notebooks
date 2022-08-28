@@ -148,16 +148,16 @@ class PersonalAssetReportingManager(IAssetReportingManager):
                                                            data=history,
                                                            graph_type=VisualizationType.LINE,
                                                            title=f'{company} ({symbol})',
-                                                           subtitle=None if symbol_valuation.annual_dividend_percentage is None else f'Dividend: {round(symbol_valuation.annual_dividend_percentage, 2)}% Annually ({symbol_valuation.divident_payout_frequency_in_months} Month Frequency)',
+                                                           subtitle=None if (symbol_valuation.annual_dividend_percentage is None or symbol_valuation.divident_payout_frequency_in_months == 0) else f'Dividend: {round(symbol_valuation.annual_dividend_percentage, 2)}% Annually ({symbol_valuation.divident_payout_frequency_in_months} Month Frequency)',
                                                            legend=True,
                                                            line_label=f'Current Value: {currency_format.format(x=history.iloc[-1]["Close"])} (Δ{round(profit_percentage, 2)}%)',
                                                            y_tick_format_str=currency_format)
 
             # Draw valuation line
-            ax.axhline(y=symbol_valuation.valuation_price,
+            ax.axhline(y=symbol_valuation.fair_price,
                        linestyle='-',
                        color=red if symbol_valuation.is_overvalued else green,
-                       label=f'Intrinsic Value: {currency_format.format(x=symbol_valuation.valuation_price)} (Δ{round(symbol_valuation.absolute_current_v_valuation_delta*100, 2)}%)')
+                       label=f'Intrinsic Value: {currency_format.format(x=symbol_valuation.fair_price)} (Δ{round(symbol_valuation.absolute_current_v_valuation_delta*100, 2)}%)')
 
             for trow_index, trow in transactions_for_symbol.iterrows():
                 transaction_date: datetime = trow.name

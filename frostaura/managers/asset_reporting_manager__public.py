@@ -1,4 +1,5 @@
 '''This module defines public manager components.'''
+from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 from frostaura.data_access.notifications_data_access import INotificationsDataAccess
 from frostaura.engines.visualization_engine import IVisualizationEngine
@@ -30,20 +31,22 @@ class PublicAssetReportingManager(IAssetReportingManager):
         currency_format: str = '${x:,.0f}'
         green: str = '#11E5AD'
         red: str = '#e55111'
-        top: int = 10
+        top: int = 15
         top_x_symbol_data = symbol_data.copy()
+        top_x_symbol_data = [s for s in top_x_symbol_data if s['valuation'] is not None]
 
         for data in top_x_symbol_data:
             valuation: ValuationResult = data['valuation']
 
             if valuation.is_overvalued:
                 valuation.absolute_current_v_valuation_delta = -valuation.absolute_current_v_valuation_delta
-        
-        top_x_symbol_data = sorted(symbol_data,
+
+        top_x_symbol_data = sorted(top_x_symbol_data,
                              key=lambda i: i['valuation'].absolute_current_v_valuation_delta,
                              reverse=True)[:top]
 
-        self.public_notification_data_access.send_text(text=f'Top <i>{top}</i> EasyEquities <strong>Value</strong> Assets <i>better viewed horizontally.</i>')
+        text: str = f'Top <i>{top}</i> EasyEquities <strong>Value</strong> Assets <i>(better viewed horizontally)</i>'
+        self.public_notification_data_access.send_text(text=text)
         assets_table: dict = {
             'Symbol': [],
             'Close': [],
@@ -59,7 +62,7 @@ class PublicAssetReportingManager(IAssetReportingManager):
 
             assets_table['Symbol'].append(symbol)
             assets_table['Close'].append(currency_format.format(x=valuation.current_price))
-            assets_table['Intrinsic'].append(currency_format.format(x=valuation.valuation_price))
+            assets_table['Intrinsic'].append(currency_format.format(x=valuation.fair_price))
             assets_table['%'].append(f'{round(valuation.absolute_current_v_valuation_delta * 100, 2)}%')
 
             if valuation.divident_payout_frequency_in_months > 0:
@@ -80,16 +83,16 @@ class PublicAssetReportingManager(IAssetReportingManager):
                                                            data=history,
                                                            graph_type=VisualizationType.LINE,
                                                            title=f'{company} ({symbol})',
-                                                           subtitle=None if valuation.annual_dividend_percentage is None else f'Dividend: {round(valuation.annual_dividend_percentage, 2)}% Annually ({valuation.divident_payout_frequency_in_months} Month Frequency)',
+                                                           subtitle=None if (valuation.annual_dividend_percentage is None or valuation.divident_payout_frequency_in_months == 0) else f'Dividend: {round(valuation.annual_dividend_percentage, 2)}% Annually ({valuation.divident_payout_frequency_in_months} Month Frequency)',
                                                            legend=True,
                                                            line_label=f'Current Value: {currency_format.format(x=history.iloc[-1]["Close"])}',
                                                            y_tick_format_str=currency_format)
 
             # Draw valuation line
-            ax.axhline(y=valuation.valuation_price,
+            ax.axhline(y=valuation.fair_price,
                        linestyle='-',
                        color=red if valuation.is_overvalued else green,
-                       label=f'Intrinsic Value: {currency_format.format(x=valuation.valuation_price)} (Δ{round(valuation.absolute_current_v_valuation_delta*100, 2)}%)')
+                       label=f'Intrinsic Value: {currency_format.format(x=valuation.fair_price)} (Δ{round(valuation.absolute_current_v_valuation_delta*100, 2)}%)')
 
             fig.legends = [fig.legend()]
 
@@ -101,14 +104,14 @@ class PublicAssetReportingManager(IAssetReportingManager):
         all_symbols: list = self.personal_asset_data_access.get_supported_assets()['symbol'].values
         symbol_data: list = list()
 
-        for symbol in all_symbols:
-            try:
-                symbol_data.append({
+        def executor_func(symbol: str) -> dict:
+            return {
                     'history': self.public_asset_data_access.get_symbol_history(symbol=symbol),
                     'valuation': self.asset_valuation_engine.valuate(symbol=symbol)
-                })
-            except Exception:
-                pass
+                }
+
+        with ThreadPoolExecutor() as executor:
+            for symbol_data_item in executor.map(lambda s: executor_func(symbol=s), all_symbols):
+                symbol_data.append(symbol_data_item)
 
         self.__send_individual_asset_performance_reports__(symbol_data=symbol_data)
-
