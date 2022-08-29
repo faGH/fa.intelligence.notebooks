@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent
-VERSION = '1.0.27'
+VERSION = '1.0.28'
 DESCRIPTION = 'FrostAura provides a range of open-source components provide a variety of problem domains.'
 LONG_DESCRIPTION = (ROOT_DIR / 'README.md').read_text()
 
@@ -27,7 +27,10 @@ setup(
         'data exploration',
         'data analysis',
         'statistics',
-        'neural networks'
+        'neural networks',
+        'securities',
+        'stocks',
+        'assets'
     ],
     include_package_data=True,
     classifiers=[
