@@ -42,16 +42,24 @@ class EasyEquitiesPersonalAssetDataAccess(IPersonalAssetDataAccess):
         info(f'Getting account valuation for account "{account.name}" ({account.id}).')
         return self.client.accounts.valuations(account.id)
 
+    def __get_excluded_assets__(self) -> list:
+        with self.resource_data_access.get_resource(path='easy_equities_us_exclusions.json') as file:
+            excluded_symbols: list = json.load(file)
+            
+            return excluded_symbols
+
     def get_supported_assets(self) -> pd.DataFrame:
         '''Get all supported asset names and symbols.'''
 
         info('Fetching EasyEquities supported symbols from a static source.')
 
+        excluded_symbols: list = self.__get_excluded_assets__()
+
         with self.resource_data_access.get_resource(path='easy_equities_us_stocks.json') as file:
             company_names_symbols: list = json.load(file)
             data: dict = {
-                'name': [c[0] for c in company_names_symbols],
-                'symbol': [c[1] for c in company_names_symbols],
+                'name': [c[0] for c in company_names_symbols if c[1] not in excluded_symbols],
+                'symbol': [c[1] for c in company_names_symbols if c[1] not in excluded_symbols],
             }
 
             return pd.DataFrame(data)

@@ -16,6 +16,7 @@ class GrahamValuationEngine(IAssetValuationEngine):
     average_yield_of_aaa_corporate_bonds: float = 4.4
     current_yield_of_aaa_corporate_bonds: float = 4.27
     margin_of_safety: float = 0.5
+    failed_symbols: list = list()
 
     def __init__(self, html_data_access: IResourcesDataAccess, public_asset_data_access: IPublicAssetDataAccess, config: dict = {}):
         self.html_data_access = html_data_access
@@ -116,4 +117,5 @@ class GrahamValuationEngine(IAssetValuationEngine):
             )
         except Exception as e:
             warn(f'Error valuating symbol "{symbol}": {str(e)}')
+            self.failed_symbols.append(symbol)
             return None

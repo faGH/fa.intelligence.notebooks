@@ -77,7 +77,7 @@ class PublicAssetReportingManager(IAssetReportingManager):
         self.public_notification_data_access.send_dataframe(pd.DataFrame(assets_table))
 
         for data in top_x_symbol_data:
-            history: pd.DataFrame = data['history']
+            history: pd.DataFrame = self.public_asset_data_access.get_symbol_history(symbol=symbol)
             valuation: ValuationResult = data['valuation']
             symbol: str = valuation.symbol
             company: str = valuation.company_name
@@ -108,14 +108,20 @@ class PublicAssetReportingManager(IAssetReportingManager):
         all_symbols: list = self.personal_asset_data_access.get_supported_assets()['symbol'].values
         symbol_data: list = list()
 
-        def executor_func(symbol: str) -> dict:
-            return {
-                    'history': self.public_asset_data_access.get_symbol_history(symbol=symbol),
+        for symbol in all_symbols:
+            symbol_data.append({
+                    'history': None,
                     'valuation': self.asset_valuation_engine.valuate(symbol=symbol)
-                }
+                })
 
-        with ThreadPoolExecutor() as executor:
-            for symbol_data_item in executor.map(lambda s: executor_func(symbol=s), all_symbols):
-                symbol_data.append(symbol_data_item)
+        #def executor_func(symbol: str) -> dict:
+        #    return {
+        #            'history': None,
+        #            'valuation': self.asset_valuation_engine.valuate(symbol=symbol)
+        #        }
+
+        #with ThreadPoolExecutor() as executor:
+        #    for symbol_data_item in executor.map(lambda s: executor_func(symbol=s), all_symbols):
+        #        symbol_data.append(symbol_data_item)
 
         self.__send_individual_asset_performance_reports__(symbol_data=symbol_data)
