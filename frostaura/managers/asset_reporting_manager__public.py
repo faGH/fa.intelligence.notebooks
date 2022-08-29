@@ -33,7 +33,11 @@ class PublicAssetReportingManager(IAssetReportingManager):
         red: str = '#e55111'
         top: int = 15
         top_x_symbol_data = symbol_data.copy()
-        top_x_symbol_data = [s for s in top_x_symbol_data if s['valuation'] is not None]
+        top_x_symbol_data = [s for s in top_x_symbol_data if s['valuation'] is not None and not s['valuation'].is_overvalued]
+
+        if len(top_x_symbol_data) <= 0:
+            self.public_notification_data_access.send_text(text='No undervalued stocks to report currently.')
+            return
 
         for data in top_x_symbol_data:
             valuation: ValuationResult = data['valuation']

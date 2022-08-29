@@ -30,3 +30,4 @@ class ValuationResult:
         self.future_growth_rate = future_growth_rate
         self.pe_ratio = pe_ratio
         self.divident_payout_frequency_in_months = divident_payout_frequency_in_months
+        self.margin_of_safety = margin_of_safety

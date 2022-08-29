@@ -80,6 +80,10 @@ class GrahamValuationEngine(IAssetValuationEngine):
             eps_ttm: float = symbol_data.eps_ttm
             current_price: float = symbol_data.current_price
 
+            if symbol_data.future_growth_rate < 0 or eps_ttm < 0:
+                warn(f'The annual growth rate ({round(symbol_data.future_growth_rate*100, 2)}%) or the eps ({eps_ttm}) of symbol "{symbol}" is negative and will be skipped.')
+                return None
+
             debug(f'EPS: {eps_ttm}')
             debug(f'pe_base_non_growth_company: {pe_base_non_growth_company}')
             debug(f'annual_growth_projected: {symbol_data.future_growth_rate*100}')
@@ -93,6 +97,9 @@ class GrahamValuationEngine(IAssetValuationEngine):
                                                                         current_yield_of_aaa_corporate_bonds=current_yield_of_aaa_corporate_bonds)
 
             debug(f'Intrinsic Value: $ {intrinsic_value} vs. Current Price: $ {current_price} based on the Benjamin Graham valuation method.')
+
+            if not intrinsic_value > 0:
+                return None
 
             return ValuationResult(
                 symbol=symbol,
