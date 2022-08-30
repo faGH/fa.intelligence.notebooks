@@ -12,3 +12,4 @@ build/**
 dist/**
 examples/**/*.csv
 data/MNIST/**
+data/CATS_DOGS/**
