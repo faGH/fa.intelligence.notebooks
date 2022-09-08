@@ -1,5 +1,4 @@
 '''This module defines public manager components.'''
-from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 from frostaura.data_access.notifications_data_access import INotificationsDataAccess
 from frostaura.engines.visualization_engine import IVisualizationEngine
@@ -77,10 +76,10 @@ class PublicAssetReportingManager(IAssetReportingManager):
         self.public_notification_data_access.send_dataframe(pd.DataFrame(assets_table))
 
         for data in top_x_symbol_data:
-            history: pd.DataFrame = self.public_asset_data_access.get_symbol_history(symbol=symbol)
             valuation: ValuationResult = data['valuation']
             symbol: str = valuation.symbol
             company: str = valuation.company_name
+            history: pd.DataFrame = self.public_asset_data_access.get_symbol_history(symbol=symbol)
 
             fig, ax = self.visualization_engine.get_figure(x='Date',
                                                            y='Close',
@@ -89,7 +88,7 @@ class PublicAssetReportingManager(IAssetReportingManager):
                                                            title=f'{company} ({symbol})',
                                                            subtitle=None if (valuation.annual_dividend_percentage is None or valuation.divident_payout_frequency_in_months == 0) else f'Dividend: {round(valuation.annual_dividend_percentage, 2)}% Annually ({valuation.divident_payout_frequency_in_months} Month Frequency)',
                                                            legend=True,
-                                                           line_label=f'Current Value: {currency_format.format(x=history.iloc[-1]["Close"])}',
+                                                           line_label=f'Current Value: {currency_format.format(x=valuation.current_price)}',
                                                            y_tick_format_str=currency_format)
 
             # Draw valuation line
@@ -105,23 +104,9 @@ class PublicAssetReportingManager(IAssetReportingManager):
     def send_reports(self):
         '''Generate and send asset reports.'''
 
-        all_symbols: list = self.personal_asset_data_access.get_supported_assets()['symbol'].values
-        symbol_data: list = list()
-
-        for symbol in all_symbols:
-            symbol_data.append({
-                    'history': None,
-                    'valuation': self.asset_valuation_engine.valuate(symbol=symbol)
-                })
-
-        #def executor_func(symbol: str) -> dict:
-        #    return {
-        #            'history': None,
-        #            'valuation': self.asset_valuation_engine.valuate(symbol=symbol)
-        #        }
-
-        #with ThreadPoolExecutor() as executor:
-        #    for symbol_data_item in executor.map(lambda s: executor_func(symbol=s), all_symbols):
-        #        symbol_data.append(symbol_data_item)
+        all_symbols: list = self.personal_asset_data_access.get_supported_assets()
+        symbols_with_info: pd.DataFrame = self.public_asset_data_access.augment_symbols_info(symbols=all_symbols)
+        symbol_data: list = [{ 'history': None, 'valuation': self.asset_valuation_engine.valuate(symbol_data=v) } for v in list(symbols_with_info.quote.values)]
+        symbol_data = [sd for sd in symbol_data if sd['valuation'] is not None]
 
         self.__send_individual_asset_performance_reports__(symbol_data=symbol_data)

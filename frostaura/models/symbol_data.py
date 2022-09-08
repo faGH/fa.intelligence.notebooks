@@ -5,20 +5,18 @@ class SymbolData:
 
     def __init__(self,
                  symbol: str,
-                 future_growth_rate: float,
-                 free_cash_flow: float,
-                 shares_outstanding: float,
                  company_name: str,
-                 annual_dividend_percentage: float,
-                 eps_ttm: float,
                  current_price: float,
-                 pe_ratio: float):
+                 eps: float,
+                 annual_growth_projected: float,
+                 current_yield_of_aaa_corporate_bonds: float = 4.27, # https://fred.stlouisfed.org/series/AAA
+                 pe_base_non_growth_company: float = 8.5,
+                 average_yield_of_aaa_corporate_bonds: float = 4.4):
         self.symbol = symbol
-        self.future_growth_rate = future_growth_rate
-        self.free_cash_flow = free_cash_flow
-        self.shares_outstanding = shares_outstanding
         self.company_name = company_name
-        self.annual_dividend_percentage = annual_dividend_percentage
-        self.eps_ttm = eps_ttm
         self.current_price = current_price
-        self.pe_ratio = pe_ratio
+        self.eps = eps
+        self.annual_growth_projected = annual_growth_projected
+        self.current_yield_of_aaa_corporate_bonds = current_yield_of_aaa_corporate_bonds
+        self.pe_base_non_growth_company = pe_base_non_growth_company
+        self.average_yield_of_aaa_corporate_bonds = average_yield_of_aaa_corporate_bonds
