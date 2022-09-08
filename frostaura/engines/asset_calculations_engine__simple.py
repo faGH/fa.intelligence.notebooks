@@ -72,11 +72,18 @@ class SimpleAssetCalculationsEngine(IAssetCalculationsEngine):
 
             total_current_usd: float = history.iloc[-1]['Close'] * total_purchased_shares
 
-            data['total_purchased_usd'].append(total_purchased_usd)
-            data['total_purchased_shares'].append(total_purchased_shares)
-            data['total_current_usd'].append(total_current_usd)
-            data['total_profit_ratio'].append((1 - min(total_purchased_usd, total_current_usd) / max(total_purchased_usd, total_current_usd)) * 100)
-            data['total_profit_usd'].append(total_current_usd - total_purchased_usd)
+            if total_current_usd > 1:
+                data['total_purchased_usd'].append(total_purchased_usd)
+                data['total_purchased_shares'].append(total_purchased_shares)
+                data['total_current_usd'].append(total_current_usd)
+                data['total_profit_ratio'].append((1 - min(total_purchased_usd, total_current_usd) / max(total_purchased_usd, total_current_usd)) * 100)
+                data['total_profit_usd'].append(total_current_usd - total_purchased_usd)
+            else:
+                data['total_purchased_usd'].append(0)
+                data['total_purchased_shares'].append(0)
+                data['total_current_usd'].append(0)
+                data['total_profit_ratio'].append(0)
+                data['total_profit_usd'].append(0)
 
         ratios: pd.DataFrame = self.__calculate_holdings_ratios__(holdings=holdings)
 

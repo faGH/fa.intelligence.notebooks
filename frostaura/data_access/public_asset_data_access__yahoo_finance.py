@@ -82,6 +82,16 @@ class YahooFinanceDataAccess(IPublicAssetDataAccess):
 
         return value
 
+    def get_symbol_info(self, symbol: str) -> SymbolData:
+        '''Get the data for a specific symbol.'''
+        quote: dict = self.__get_symbol_quote__(symbol=symbol)
+            
+        return SymbolData(symbol=quote['symbol'],
+                          company_name=quote['company_name'],
+                          current_price=quote['current_price'],
+                          eps=quote['eps'],
+                          annual_growth_projected=quote['growth_rate'])
+
     def augment_symbols_info(self, symbols: pd.DataFrame) -> pd.DataFrame:
         '''Add info to a daraframe containing symbols.'''
         def get_symbol_data(symbol: str) -> SymbolData:

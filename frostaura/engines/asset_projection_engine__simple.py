@@ -1,5 +1,6 @@
 '''This module defines projection engine components.'''
 import pandas as pd
+from frostaura.models.symbol_data import SymbolData
 import inflect
 from frostaura.engines.asset_projection_engine import IAssetProjectionEngine
 from frostaura.engines.asset_valuation_engine import IAssetValuationEngine
@@ -25,8 +26,9 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
                                      monthly_deposit: float = 0) -> pd.DataFrame:
         '''Determine an asset's growth at a given annual rate over a specified number of months while applying a monthly deposit.'''
 
-        valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=symbol)
-        annual_growth_rate: float = valuation.future_growth_rate
+        symbol_data: SymbolData = self.public_asset_data_access.get_symbol_info(symbol=symbol)
+        valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol_data=symbol_data)
+        annual_growth_rate: float = symbol_data.annual_growth_projected
         divident_payout_frequency_in_months: int = valuation.divident_payout_frequency_in_months
         data = {
             'month': list(),
@@ -75,8 +77,9 @@ class SimpleAssetProjectionEngine(IAssetProjectionEngine):
 
         for row_index, row in holdings_with_profits.iterrows():
             try:
-                symbol_valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=row['symbol'])
-                annual_growth_rate: float = symbol_valuation.future_growth_rate
+                symbol_data: SymbolData = self.public_asset_data_access.get_symbol_info(symbol=row['symbol'])
+                symbol_valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol_data=symbol_data)
+                annual_growth_rate: float = symbol_data.annual_growth_projected
 
                 if symbol_valuation.annual_dividend_percentage is not None:
                     annual_growth_rate += (symbol_valuation.annual_dividend_percentage / 100)

@@ -11,6 +11,7 @@ from frostaura.engines.asset_projection_engine import IAssetProjectionEngine
 from frostaura.models.profit_calculation_result import ProfitCalculationResult
 from frostaura.engines.asset_valuation_engine import IAssetValuationEngine
 from frostaura.data_access.public_asset_data_access import IPublicAssetDataAccess
+from frostaura.models.symbol_data import SymbolData
 from frostaura.models.visualization_types import VisualizationType
 from frostaura.models.valuation_result import ValuationResult
 
@@ -37,7 +38,7 @@ class PersonalAssetReportingManager(IAssetReportingManager):
 
     def __send_holdings_pie_chart__(self, holdings_with_profits: pd.DataFrame,):
         pie_fig, pie_ax = self.visualization_engine.get_figure(x='symbol',
-                                                               y='total_current_usd',
+                                                               y='ratio',
                                                                data=holdings_with_profits,
                                                                graph_type=VisualizationType.PIE,
                                                                title='Portfolio Assets')
@@ -77,7 +78,7 @@ class PersonalAssetReportingManager(IAssetReportingManager):
     def __send_holdings_report__(self, holdings: list):
         overall_holdings_profit: ProfitCalculationResult = self.asset_calculation_engine.calculate_holdings_profit(holdings)
 
-        self.personal_notification_data_access.send_text(f'<strong>Overall Holdings Profits:</strong> ${round(overall_holdings_profit.value, 2)} ({round(overall_holdings_profit.percentage)}%)')
+        self.personal_notification_data_access.send_text(f'<strong>Overall Holdings Profits:</strong> ${round(overall_holdings_profit.value, 2)} ({round(overall_holdings_profit.percentage if overall_holdings_profit.value > 0 else -overall_holdings_profit.percentage)}%)')
 
     def __send_wealth_projections_report__(self,
                                          holdings_with_profits: pd.DataFrame,
@@ -138,7 +139,8 @@ class PersonalAssetReportingManager(IAssetReportingManager):
 
             self.personal_notification_data_access.send_text(text=message)
 
-            symbol_valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol=symbol)
+            symbol_data: SymbolData = self.public_asset_data_access.get_symbol_info(symbol=symbol)
+            symbol_valuation: ValuationResult = self.asset_valuation_engine.valuate(symbol_data=symbol_data)
 
             if symbol_valuation is None:
                 return
