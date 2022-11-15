@@ -1,0 +1,1762 @@
+[
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 207.44,
+        "date": "2022-09-23T22:00:00.000Z",
+        "day": 24,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Pizza Pug, Cornubia",
+        "amount": 194.54,
+        "date": "2022-09-22T22:00:00.000Z",
+        "day": 23,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Pizza Pug, Cornubia",
+        "amount": 198.74,
+        "date": "2022-09-21T22:00:00.000Z",
+        "day": 22,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Umhlanga Lagoon Drive",
+        "amount": 154.22,
+        "date": "2022-09-21T22:00:00.000Z",
+        "day": 22,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 236.84,
+        "date": "2022-09-20T22:00:00.000Z",
+        "day": 21,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 104.75,
+        "date": "2022-09-16T22:00:00.000Z",
+        "day": 17,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "RocoMamas, Cornubia",
+        "amount": 175.2,
+        "date": "2022-09-15T22:00:00.000Z",
+        "day": 16,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 115.14,
+        "date": "2022-09-13T22:00:00.000Z",
+        "day": 14,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tong Lok Restaurant, Umhlanga",
+        "amount": 259.2,
+        "date": "2022-09-13T22:00:00.000Z",
+        "day": 14,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 187.8,
+        "date": "2022-09-12T22:00:00.000Z",
+        "day": 13,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gateway Mall",
+        "amount": 166.49,
+        "date": "2022-09-10T22:00:00.000Z",
+        "day": 11,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 104.75,
+        "date": "2022-09-09T22:00:00.000Z",
+        "day": 10,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "RocoMamas, Cornubia",
+        "amount": 64.7,
+        "date": "2022-09-08T22:00:00.000Z",
+        "day": 9,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Gateway KZN",
+        "amount": 156.3,
+        "date": "2022-09-08T22:00:00.000Z",
+        "day": 9,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 236.84,
+        "date": "2022-09-07T22:00:00.000Z",
+        "day": 8,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 104.75,
+        "date": "2022-09-07T22:00:00.000Z",
+        "day": 8,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 86.9,
+        "date": "2022-09-04T22:00:00.000Z",
+        "day": 5,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mugg & Bean, Umhlanga Sands",
+        "amount": 102.75,
+        "date": "2022-09-03T22:00:00.000Z",
+        "day": 4,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 76.5,
+        "date": "2022-09-03T22:00:00.000Z",
+        "day": 4,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Simply Asia, The Pearls",
+        "amount": 147.48,
+        "date": "2022-09-03T22:00:00.000Z",
+        "day": 4,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "RocoMamas, Cornubia",
+        "amount": 110.1,
+        "date": "2022-09-02T22:00:00.000Z",
+        "day": 3,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Chicken Licken®, Gateway",
+        "amount": 220.35,
+        "date": "2022-09-02T22:00:00.000Z",
+        "day": 3,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 104.75,
+        "date": "2022-09-02T22:00:00.000Z",
+        "day": 3,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 118.61,
+        "date": "2022-08-31T22:00:00.000Z",
+        "day": 1,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Pizza Pug, Cornubia",
+        "amount": 0,
+        "date": "2022-08-31T22:00:00.000Z",
+        "day": 1,
+        "month": 9,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 217.31,
+        "date": "2022-08-30T22:00:00.000Z",
+        "day": 31,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Doppio Zero, Umhlanga",
+        "amount": 303.9,
+        "date": "2022-08-27T22:00:00.000Z",
+        "day": 28,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Olive & Oil, Umhlanga",
+        "amount": 285.9,
+        "date": "2022-08-25T22:00:00.000Z",
+        "day": 26,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Umhlanga Lagoon Drive",
+        "amount": 139.29,
+        "date": "2022-08-24T22:00:00.000Z",
+        "day": 25,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Blue Bottle Liquors, Richards",
+        "amount": 0,
+        "date": "2022-08-19T22:00:00.000Z",
+        "day": 20,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Incredible India",
+        "amount": 97.5,
+        "date": "2022-08-17T22:00:00.000Z",
+        "day": 18,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 55.15,
+        "date": "2022-08-17T22:00:00.000Z",
+        "day": 18,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Umhlanga Lagoon Drive",
+        "amount": 238.94,
+        "date": "2022-08-16T22:00:00.000Z",
+        "day": 17,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Incredible India",
+        "amount": 69,
+        "date": "2022-08-14T22:00:00.000Z",
+        "day": 15,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "The Pantry Convenient Store",
+        "amount": 318.9,
+        "date": "2022-08-14T22:00:00.000Z",
+        "day": 15,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas\n5 out of 5 stars",
+        "amount": 104.75,
+        "date": "2022-08-14T22:00:00.000Z",
+        "day": 15,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 118.14,
+        "date": "2022-08-13T22:00:00.000Z",
+        "day": 14,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Climbing Wall Gateway",
+        "amount": 104.75,
+        "date": "2022-08-13T22:00:00.000Z",
+        "day": 14,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 165.44,
+        "date": "2022-08-12T22:00:00.000Z",
+        "day": 13,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Bombay Blu Plus, Sunningdale",
+        "amount": 194.96,
+        "date": "2022-08-12T22:00:00.000Z",
+        "day": 13,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Crescent Umhlanga",
+        "amount": 0,
+        "date": "2022-08-12T22:00:00.000Z",
+        "day": 13,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Col'Cacchio, Gateway",
+        "amount": 345.9,
+        "date": "2022-08-10T22:00:00.000Z",
+        "day": 11,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Umhlanga Lagoon Drive",
+        "amount": 144.54,
+        "date": "2022-08-09T22:00:00.000Z",
+        "day": 10,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 124.59,
+        "date": "2022-08-06T22:00:00.000Z",
+        "day": 7,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Total Umhlanga Ridge - Halaal",
+        "amount": 3,
+        "date": "2022-08-06T22:00:00.000Z",
+        "day": 7,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Col'Cacchio, Gateway",
+        "amount": 0,
+        "date": "2022-08-06T22:00:00.000Z",
+        "day": 7,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 176.69,
+        "date": "2022-08-05T22:00:00.000Z",
+        "day": 6,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, The Crescent",
+        "amount": 0,
+        "date": "2022-08-05T22:00:00.000Z",
+        "day": 6,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 104.75,
+        "date": "2022-08-05T22:00:00.000Z",
+        "day": 6,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Umhlanga Rocks",
+        "amount": 0,
+        "date": "2022-08-03T22:00:00.000Z",
+        "day": 4,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 61.15,
+        "date": "2022-08-02T22:00:00.000Z",
+        "day": 3,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "Col'Cacchio, Gateway",
+        "amount": 273.64,
+        "date": "2022-08-02T22:00:00.000Z",
+        "day": 3,
+        "month": 8,
+        "year": 2022
+    },
+    {
+        "restaurant": "BP, La Lucia Ridge Oasis",
+        "amount": 94.39,
+        "date": "2022-07-30T22:00:00.000Z",
+        "day": 31,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Climbing Wall Gateway",
+        "amount": 181.29,
+        "date": "2022-07-30T22:00:00.000Z",
+        "day": 31,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Strada Cucina",
+        "amount": 171,
+        "date": "2022-07-29T22:00:00.000Z",
+        "day": 30,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 140.24,
+        "date": "2022-07-28T22:00:00.000Z",
+        "day": 29,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 247.19,
+        "date": "2022-07-27T22:00:00.000Z",
+        "day": 28,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Siam Thai Kitchen",
+        "amount": 189.5,
+        "date": "2022-07-26T22:00:00.000Z",
+        "day": 27,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Crescent Umhlanga",
+        "amount": 194.84,
+        "date": "2022-07-26T22:00:00.000Z",
+        "day": 27,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 192.74,
+        "date": "2022-07-25T22:00:00.000Z",
+        "day": 26,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Gateway KZN",
+        "amount": 76.5,
+        "date": "2022-07-23T22:00:00.000Z",
+        "day": 24,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 168.44,
+        "date": "2022-07-23T22:00:00.000Z",
+        "day": 24,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Climbing Wall Gateway",
+        "amount": 105.08,
+        "date": "2022-07-23T22:00:00.000Z",
+        "day": 24,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, The Pearls",
+        "amount": 100.19,
+        "date": "2022-07-20T22:00:00.000Z",
+        "day": 21,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Simply Asia, The Pearls",
+        "amount": 174.15,
+        "date": "2022-07-20T22:00:00.000Z",
+        "day": 21,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 167.34,
+        "date": "2022-07-19T22:00:00.000Z",
+        "day": 20,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Siam Thai Kitchen",
+        "amount": 189.5,
+        "date": "2022-07-17T22:00:00.000Z",
+        "day": 18,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 76.5,
+        "date": "2022-07-16T22:00:00.000Z",
+        "day": 17,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Umhlanga Lagoon Drive",
+        "amount": 128.79,
+        "date": "2022-07-16T22:00:00.000Z",
+        "day": 17,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 76.5,
+        "date": "2022-07-14T22:00:00.000Z",
+        "day": 15,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Umhlanga Lagoon Drive",
+        "amount": 128.64,
+        "date": "2022-07-14T22:00:00.000Z",
+        "day": 15,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Panarottis, Gateway",
+        "amount": 364.4,
+        "date": "2022-07-13T22:00:00.000Z",
+        "day": 14,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 116.19,
+        "date": "2022-07-12T22:00:00.000Z",
+        "day": 13,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 166.19,
+        "date": "2022-07-11T22:00:00.000Z",
+        "day": 12,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 146.38,
+        "date": "2022-07-09T22:00:00.000Z",
+        "day": 10,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 118.61,
+        "date": "2022-07-08T22:00:00.000Z",
+        "day": 9,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Siam Thai Kitchen",
+        "amount": 194.75,
+        "date": "2022-07-08T22:00:00.000Z",
+        "day": 9,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 55.15,
+        "date": "2022-07-08T22:00:00.000Z",
+        "day": 9,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 166.19,
+        "date": "2022-07-07T22:00:00.000Z",
+        "day": 8,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 55.9,
+        "date": "2022-07-06T22:00:00.000Z",
+        "day": 7,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 237.88,
+        "date": "2022-07-06T22:00:00.000Z",
+        "day": 7,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 156.84,
+        "date": "2022-07-05T22:00:00.000Z",
+        "day": 6,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Simply Asia, The Pearls",
+        "amount": 174.15,
+        "date": "2022-07-01T22:00:00.000Z",
+        "day": 2,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 344.4,
+        "date": "2022-06-30T22:00:00.000Z",
+        "day": 1,
+        "month": 7,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 76.5,
+        "date": "2022-06-29T22:00:00.000Z",
+        "day": 30,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Pedros Chicken, Gateway - Halaal",
+        "amount": 137.93,
+        "date": "2022-06-29T22:00:00.000Z",
+        "day": 30,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Siam Thai Kitchen",
+        "amount": 169.65,
+        "date": "2022-06-28T22:00:00.000Z",
+        "day": 29,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 237.88,
+        "date": "2022-06-27T22:00:00.000Z",
+        "day": 28,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mugg & Bean, Umhlanga Sands",
+        "amount": 0,
+        "date": "2022-06-26T22:00:00.000Z",
+        "day": 27,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Gateway LL - Halaal",
+        "amount": 67.89,
+        "date": "2022-06-25T22:00:00.000Z",
+        "day": 26,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 144.39,
+        "date": "2022-06-19T22:00:00.000Z",
+        "day": 20,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gatemax",
+        "amount": 66.79,
+        "date": "2022-06-18T22:00:00.000Z",
+        "day": 19,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 273.5,
+        "date": "2022-06-16T22:00:00.000Z",
+        "day": 17,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 115.19,
+        "date": "2022-06-15T22:00:00.000Z",
+        "day": 16,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gateway Mall",
+        "amount": 152.68,
+        "date": "2022-06-15T22:00:00.000Z",
+        "day": 16,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 123.59,
+        "date": "2022-06-14T22:00:00.000Z",
+        "day": 15,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Total Umhlanga Ridge - Halaal",
+        "amount": 148.79,
+        "date": "2022-06-12T22:00:00.000Z",
+        "day": 13,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 144.39,
+        "date": "2022-06-12T22:00:00.000Z",
+        "day": 13,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 57.3,
+        "date": "2022-06-11T22:00:00.000Z",
+        "day": 12,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Umhlanga Lagoon Drive",
+        "amount": 51.9,
+        "date": "2022-06-11T22:00:00.000Z",
+        "day": 12,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 48.9,
+        "date": "2022-06-09T22:00:00.000Z",
+        "day": 10,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "The Pantry Convenient Store",
+        "amount": 123.73,
+        "date": "2022-06-08T22:00:00.000Z",
+        "day": 9,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 159.19,
+        "date": "2022-06-08T22:00:00.000Z",
+        "day": 9,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gatemax",
+        "amount": 69.79,
+        "date": "2022-06-07T22:00:00.000Z",
+        "day": 8,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 123.59,
+        "date": "2022-06-06T22:00:00.000Z",
+        "day": 7,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tong Lok Restaurant, Umhlanga",
+        "amount": 258.2,
+        "date": "2022-06-06T22:00:00.000Z",
+        "day": 7,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Umhlanga Lagoon Drive",
+        "amount": 104.54,
+        "date": "2022-06-05T22:00:00.000Z",
+        "day": 6,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Total Umhlanga Ridge - Halaal",
+        "amount": 121.49,
+        "date": "2022-06-05T22:00:00.000Z",
+        "day": 6,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 122.54,
+        "date": "2022-06-04T22:00:00.000Z",
+        "day": 5,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 187.64,
+        "date": "2022-06-04T22:00:00.000Z",
+        "day": 5,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "The Pantry Convenient Store",
+        "amount": 76.75,
+        "date": "2022-06-04T22:00:00.000Z",
+        "day": 5,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "The Pantry Convenient Store",
+        "amount": 203,
+        "date": "2022-06-04T22:00:00.000Z",
+        "day": 5,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Smokin Joes JNR Umhlanga",
+        "amount": 81.8,
+        "date": "2022-06-02T22:00:00.000Z",
+        "day": 3,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 163.24,
+        "date": "2022-06-01T22:00:00.000Z",
+        "day": 2,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 103.75,
+        "date": "2022-06-01T22:00:00.000Z",
+        "day": 2,
+        "month": 6,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Umhlanga Lagoon Drive",
+        "amount": 151.69,
+        "date": "2022-05-30T22:00:00.000Z",
+        "day": 31,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 43.65,
+        "date": "2022-05-29T22:00:00.000Z",
+        "day": 30,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Afro's Chicken, Umhlanga",
+        "amount": 89.15,
+        "date": "2022-05-29T22:00:00.000Z",
+        "day": 30,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 161.39,
+        "date": "2022-05-28T22:00:00.000Z",
+        "day": 29,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Total Umhlanga Ridge - Halaal",
+        "amount": 95.24,
+        "date": "2022-05-28T22:00:00.000Z",
+        "day": 29,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "RocoMamas, Cornubia",
+        "amount": 92.15,
+        "date": "2022-05-27T22:00:00.000Z",
+        "day": 28,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tong Lok Restaurant, Umhlanga",
+        "amount": 284.9,
+        "date": "2022-05-27T22:00:00.000Z",
+        "day": 28,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 75.2,
+        "date": "2022-05-26T22:00:00.000Z",
+        "day": 27,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Total Umhlanga Ridge - Halaal",
+        "amount": 117.29,
+        "date": "2022-05-25T22:00:00.000Z",
+        "day": 26,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 144.19,
+        "date": "2022-05-24T22:00:00.000Z",
+        "day": 25,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Col'Cacchio, Gateway",
+        "amount": 0,
+        "date": "2022-05-24T22:00:00.000Z",
+        "day": 25,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 153.94,
+        "date": "2022-05-22T22:00:00.000Z",
+        "day": 23,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Doppio Zero, Umhlanga",
+        "amount": 93.77,
+        "date": "2022-05-21T22:00:00.000Z",
+        "day": 22,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Climbing Wall Gateway",
+        "amount": 169.79,
+        "date": "2022-05-21T22:00:00.000Z",
+        "day": 22,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Total Umhlanga Ridge - Halaal",
+        "amount": 145.64,
+        "date": "2022-05-19T22:00:00.000Z",
+        "day": 20,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 188.69,
+        "date": "2022-05-18T22:00:00.000Z",
+        "day": 19,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Total Umhlanga Ridge - Halaal",
+        "amount": 153.94,
+        "date": "2022-05-15T22:00:00.000Z",
+        "day": 16,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 123.29,
+        "date": "2022-05-13T22:00:00.000Z",
+        "day": 14,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Afro's Chicken, Umhlanga",
+        "amount": 128,
+        "date": "2022-05-12T22:00:00.000Z",
+        "day": 13,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Bombay Blu Plus, Sunningdale",
+        "amount": 194.31,
+        "date": "2022-05-10T22:00:00.000Z",
+        "day": 11,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Afro's Chicken, Umhlanga",
+        "amount": 80.75,
+        "date": "2022-05-09T22:00:00.000Z",
+        "day": 10,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 140.6,
+        "date": "2022-05-08T22:00:00.000Z",
+        "day": 9,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 174.89,
+        "date": "2022-05-06T22:00:00.000Z",
+        "day": 7,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Col'Cacchio, Gateway",
+        "amount": 0,
+        "date": "2022-05-06T22:00:00.000Z",
+        "day": 7,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Climbing Wall Gateway",
+        "amount": 180.29,
+        "date": "2022-05-06T22:00:00.000Z",
+        "day": 7,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Panarottis, Gateway",
+        "amount": 351.5,
+        "date": "2022-05-05T22:00:00.000Z",
+        "day": 6,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Umhlanga Rocks",
+        "amount": 116.77,
+        "date": "2022-05-04T22:00:00.000Z",
+        "day": 5,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Col'Cacchio, Gateway",
+        "amount": 0,
+        "date": "2022-04-30T22:00:00.000Z",
+        "day": 1,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "RocoMamas, Gateway",
+        "amount": 171.05,
+        "date": "2022-04-30T22:00:00.000Z",
+        "day": 1,
+        "month": 5,
+        "year": 2022
+    },
+    {
+        "restaurant": "Panarottis, Gateway",
+        "amount": 147.74,
+        "date": "2022-04-29T22:00:00.000Z",
+        "day": 30,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Siam Thai Kitchen",
+        "amount": 153.95,
+        "date": "2022-04-28T22:00:00.000Z",
+        "day": 29,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Pocatello",
+        "amount": 193.64,
+        "date": "2022-04-24T22:00:00.000Z",
+        "day": 25,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Lupa Osteria, Umhlanga",
+        "amount": 112.1,
+        "date": "2022-04-23T22:00:00.000Z",
+        "day": 24,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Burger King®, Gateway",
+        "amount": 122.44,
+        "date": "2022-04-23T22:00:00.000Z",
+        "day": 24,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "RocoMamas, Gateway",
+        "amount": 102.8,
+        "date": "2022-04-22T22:00:00.000Z",
+        "day": 23,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 179.24,
+        "date": "2022-04-17T22:00:00.000Z",
+        "day": 18,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Salsa Mexican Grill, Umhlanga",
+        "amount": 252.95,
+        "date": "2022-04-16T22:00:00.000Z",
+        "day": 17,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Smokin Joes JNR Umhlanga",
+        "amount": 170,
+        "date": "2022-04-16T22:00:00.000Z",
+        "day": 17,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 97.34,
+        "date": "2022-04-15T22:00:00.000Z",
+        "day": 16,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Bombay Blu Plus, Sunningdale",
+        "amount": 193.96,
+        "date": "2022-04-15T22:00:00.000Z",
+        "day": 16,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "The Pantry Convenient Store",
+        "amount": 253.4,
+        "date": "2022-04-14T22:00:00.000Z",
+        "day": 15,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tong Lok Restaurant, Umhlanga",
+        "amount": 374.9,
+        "date": "2022-04-13T22:00:00.000Z",
+        "day": 14,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 156.14,
+        "date": "2022-04-08T22:00:00.000Z",
+        "day": 9,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tong Lok Restaurant, Umhlanga",
+        "amount": 0,
+        "date": "2022-04-08T22:00:00.000Z",
+        "day": 9,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "BP, La Lucia Ridge Oasis",
+        "amount": 329.7,
+        "date": "2022-04-08T22:00:00.000Z",
+        "day": 9,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Climbing Wall Gateway",
+        "amount": 132.1,
+        "date": "2022-04-08T22:00:00.000Z",
+        "day": 9,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Total Umhlanga Ridge - Halaal",
+        "amount": 121.49,
+        "date": "2022-04-05T22:00:00.000Z",
+        "day": 6,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tong Lok Restaurant, Umhlanga",
+        "amount": 0,
+        "date": "2022-04-05T22:00:00.000Z",
+        "day": 6,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gateway Mall",
+        "amount": 93.14,
+        "date": "2022-04-04T22:00:00.000Z",
+        "day": 5,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 147.95,
+        "date": "2022-04-03T22:00:00.000Z",
+        "day": 4,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Burgerack, Gateway - Halaal",
+        "amount": 0,
+        "date": "2022-04-03T22:00:00.000Z",
+        "day": 4,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gatemax",
+        "amount": 100.49,
+        "date": "2022-04-02T22:00:00.000Z",
+        "day": 3,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 184.7,
+        "date": "2022-04-02T22:00:00.000Z",
+        "day": 3,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Aces Pizza",
+        "amount": 313.9,
+        "date": "2022-03-31T22:00:00.000Z",
+        "day": 1,
+        "month": 4,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Miami",
+        "amount": 153.89,
+        "date": "2022-03-30T22:00:00.000Z",
+        "day": 31,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Turn N Tender, Umhlanga",
+        "amount": 261.9,
+        "date": "2022-03-28T22:00:00.000Z",
+        "day": 29,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Turn N Tender, Umhlanga",
+        "amount": 0,
+        "date": "2022-03-27T22:00:00.000Z",
+        "day": 28,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Steers, Engen Mount Edgecombe",
+        "amount": 139.04,
+        "date": "2022-03-22T22:00:00.000Z",
+        "day": 23,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mugg & Bean, Crescent Umhlanga OTM LS",
+        "amount": 0,
+        "date": "2022-03-22T22:00:00.000Z",
+        "day": 23,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Strada Cucina",
+        "amount": 96.4,
+        "date": "2022-03-21T22:00:00.000Z",
+        "day": 22,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Panarottis, Gateway",
+        "amount": 202.34,
+        "date": "2022-03-16T22:00:00.000Z",
+        "day": 17,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Strada Cucina",
+        "amount": 135.35,
+        "date": "2022-03-13T22:00:00.000Z",
+        "day": 14,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tong Lok Restaurant, Umhlanga",
+        "amount": 272.95,
+        "date": "2022-03-12T22:00:00.000Z",
+        "day": 13,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mugg & Bean, Crescent Umhlanga OTM LS",
+        "amount": 83.9,
+        "date": "2022-03-12T22:00:00.000Z",
+        "day": 13,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Morningside Liquors",
+        "amount": 449.9,
+        "date": "2022-03-11T22:00:00.000Z",
+        "day": 12,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 141.47,
+        "date": "2022-03-10T22:00:00.000Z",
+        "day": 11,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 203.6,
+        "date": "2022-03-09T22:00:00.000Z",
+        "day": 10,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "EL Patron Cocktail Lounge and Tapas Bar",
+        "amount": 163.55,
+        "date": "2022-03-08T22:00:00.000Z",
+        "day": 9,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Strada Cucina",
+        "amount": 115.4,
+        "date": "2022-03-06T22:00:00.000Z",
+        "day": 7,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gatemax",
+        "amount": 121.88,
+        "date": "2022-03-04T22:00:00.000Z",
+        "day": 5,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Debonairs Pizza, Total Umhlanga Ridge - Halaal",
+        "amount": 146.59,
+        "date": "2022-03-04T22:00:00.000Z",
+        "day": 5,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 240.7,
+        "date": "2022-03-02T22:00:00.000Z",
+        "day": 3,
+        "month": 3,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 52.05,
+        "date": "2022-02-27T22:00:00.000Z",
+        "day": 28,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 109.02,
+        "date": "2022-02-26T22:00:00.000Z",
+        "day": 27,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gatemax",
+        "amount": 133.99,
+        "date": "2022-02-26T22:00:00.000Z",
+        "day": 27,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Cabanas",
+        "amount": 108.95,
+        "date": "2022-02-22T22:00:00.000Z",
+        "day": 23,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mugg & Bean, Gateway",
+        "amount": 100.65,
+        "date": "2022-02-21T22:00:00.000Z",
+        "day": 22,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Jack Salmon Sushi & Poke Bar, DBN North",
+        "amount": 276.9,
+        "date": "2022-02-21T22:00:00.000Z",
+        "day": 22,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mochachos, Umhlanga Pearls - Halaal",
+        "amount": 103.49,
+        "date": "2022-02-20T22:00:00.000Z",
+        "day": 21,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mugg & Bean, Crescent Umhlanga OTM LS",
+        "amount": 0,
+        "date": "2022-02-20T22:00:00.000Z",
+        "day": 21,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gatemax",
+        "amount": 180.14,
+        "date": "2022-02-20T22:00:00.000Z",
+        "day": 21,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Pizza Boyz, Umhlanga - Halaal",
+        "amount": 143.7,
+        "date": "2022-02-19T22:00:00.000Z",
+        "day": 20,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mugg & Bean, Crescent Umhlanga OTM LS",
+        "amount": 0,
+        "date": "2022-02-19T22:00:00.000Z",
+        "day": 20,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "RocoMamas, Gateway",
+        "amount": 103.8,
+        "date": "2022-02-19T22:00:00.000Z",
+        "day": 20,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gatemax",
+        "amount": 106.85,
+        "date": "2022-02-19T22:00:00.000Z",
+        "day": 20,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 272.6,
+        "date": "2022-02-17T22:00:00.000Z",
+        "day": 18,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Climbing Wall Gateway",
+        "amount": 160.29,
+        "date": "2022-02-17T22:00:00.000Z",
+        "day": 18,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 156.3,
+        "date": "2022-02-16T22:00:00.000Z",
+        "day": 17,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Umhlanga Rocks",
+        "amount": 119.34,
+        "date": "2022-02-15T22:00:00.000Z",
+        "day": 16,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Q'BN'S Eatery",
+        "amount": 257.9,
+        "date": "2022-02-14T22:00:00.000Z",
+        "day": 15,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 228.9,
+        "date": "2022-02-12T22:00:00.000Z",
+        "day": 13,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Q'BN'S Eatery",
+        "amount": 217.9,
+        "date": "2022-02-11T22:00:00.000Z",
+        "day": 12,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Spur, Augusta",
+        "amount": 93.09,
+        "date": "2022-02-10T22:00:00.000Z",
+        "day": 11,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Wimpy, Climbing Wall Gateway",
+        "amount": 0,
+        "date": "2022-02-10T22:00:00.000Z",
+        "day": 11,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "RocoMamas, Gateway",
+        "amount": 151.05,
+        "date": "2022-02-10T22:00:00.000Z",
+        "day": 11,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tommy's Sushi, Durban North",
+        "amount": 140.15,
+        "date": "2022-02-10T22:00:00.000Z",
+        "day": 11,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Q'BN'S Eatery",
+        "amount": 257.9,
+        "date": "2022-02-09T22:00:00.000Z",
+        "day": 10,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "KFC, Gatemax",
+        "amount": 76.29,
+        "date": "2022-02-08T22:00:00.000Z",
+        "day": 9,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tommy's Sushi, Durban North",
+        "amount": 219.9,
+        "date": "2022-02-08T22:00:00.000Z",
+        "day": 9,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Bombay Blu Plus, Sunningdale",
+        "amount": 194.96,
+        "date": "2022-02-07T22:00:00.000Z",
+        "day": 8,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 156.3,
+        "date": "2022-02-06T22:00:00.000Z",
+        "day": 7,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Mimmos, Gateway",
+        "amount": 156.3,
+        "date": "2022-02-05T22:00:00.000Z",
+        "day": 6,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 87.95,
+        "date": "2022-02-05T22:00:00.000Z",
+        "day": 6,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "Tong Lok Restaurant, Umhlanga",
+        "amount": 239.9,
+        "date": "2022-02-04T22:00:00.000Z",
+        "day": 5,
+        "month": 2,
+        "year": 2022
+    },
+    {
+        "restaurant": "McDonald's®, Umhlanga",
+        "amount": 101.49,
+        "date": "2022-02-03T22:00:00.000Z",
+        "day": 4,
+        "month": 2,
+        "year": 2022
+    }
+]
