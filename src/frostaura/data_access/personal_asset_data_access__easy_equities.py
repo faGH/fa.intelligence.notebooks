@@ -69,13 +69,13 @@ class EasyEquitiesPersonalAssetDataAccess(IPersonalAssetDataAccess):
 
         data: list = [
             ['Tesla Inc.', 'TSLA', 0.0688, datetime(2022, 7, 28, 0, 0)],
-            ['Apple Inc.', 'AAPL', 0.4317, datetime(2022, 7, 1, 0, 0)],
             ['3D Systems Corporation', 'DDD', 8.8925, datetime(2022, 8, 5, 0, 0)],
             ['3D Systems Corporation', 'DDD', 5.2957, datetime(2022, 8, 18, 0, 0)],
             ['SPDR S&P 500 ETF', 'SPY', 0.0829, datetime(2022, 8, 22, 0, 0)],
             ['3D Systems Corporation', 'DDD', 2.317, datetime(2022, 8, 22, 0, 0)],
             ['Tesla Inc.', 'TSLA', 0.0884, datetime(2022, 8, 29, 0, 0)],
-            ['SPDR S&P 500 ETF', 'SPY', 0.0547, datetime(2022, 8, 29, 0, 0)]
+            ['SPDR S&P 500 ETF', 'SPY', 0.0547, datetime(2022, 8, 29, 0, 0)],
+            ['SPDR S&P 500 ETF', 'SPY', 0.4347, datetime(2022, 12, 19, 0, 0)]
         ]
 
         return pd.DataFrame(data, columns =['name', 'symbol', 'shares', 'date']).set_index('date')
