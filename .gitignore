@@ -1,15 +1,15 @@
 *data.p
 *.ignore.*
-labs/courses/Artificial Intelligence for Simple Games/notebooks/configuration/images/abstract/0.jpg
-labs/email/**
-labs/nlp/kaggle.json
-labs/deep_fakes/SimSwap
-labs/confluence/**
-data/*.pt
+**/labs/**/*.jpg
+**/labs/email/**
+**/labs/nlp/kaggle.json
+**/labs/deep_fakes/SimSwap
+**/labs/confluence/**
+**/data/*.pt
 **/__pycache__/**
-build/**
+**/build/**
 *.egg-info/**
-dist/**
-examples/**/*.csv
-data/MNIST/**
-data/CATS_DOGS/**
+**/dist/**
+**/examples/**/*.csv
+**/data/MNIST/**
+**/data/CATS_DOGS/**
