@@ -1,10 +1,33 @@
-# environments
+[<< Back](../README.md)
+
+# Getting Started
 ## Description
 This page describes how to set up Windows and Mac environments for working with this repo.
 
 In addition, this directory provides various conda environments that can be used cross-platform to work with various libraries and versioning restrictions that may come with them. For this you can refer to the [conda](./conda/README.md) page.
 
 ## Getting Started
+### Local
+- Python >= 3.7 required.
+- [Setup your environment.](./environments/README.md)
+
+To build the Python package locally, from the root of the project, run `python -m build` (Legacy way: `python setup.py sdist bdist_wheel`).
+### PIP Installation
+```
+pip install -U --no-cache-dir frostaura
+````
+#### Example Usage (See [all the examples here](https://github.com/faGH/fa.intelligence.notebooks/tree/main/examples).)
+```
+from frostaura import (models,
+                       data_access,
+                       engines,
+                       managers)
+
+html_data_access = data_access.HtmlDataAccess()
+engine = engines.FinvizAssetValuationEngine(html_data_access=html_data_access)
+
+vars(engine.valuate(symbol='AAPL', company_name='Apple Inc.'))
+```
 ### MiniForge (conda)
 #### Windows
 - Install Miniforge from [their GitHub page](https://github.com/conda-forge/miniforge). In our case [Miniforge3-Windows-x86_64](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe).
@@ -26,14 +49,4 @@ In addition, this directory provides various conda environments that can be used
   - [Run this notebook to check library versions post-setup](./scripts/check_version.ipynb).
   - Now you can run any notebooks just like you did the above. Remember to choose your environment that you registered in the setup stage, as your Python interpreter of choice.
 
-## Contribute
-In order to contribute, simply fork the repository, make changes and create a pull request.
-
-## Support
-If you enjoy FrostAura open-source content and would like to support us in continuous delivery, please consider a donation via a platform of your choice.
-
-| Supported Platforms | Link |
-| ------------------- | ---- |
-| PayPal | [Donate via Paypal](https://www.paypal.com/donate/?hosted_button_id=SVEXJC9HFBJ72) |
-
-For any queries, contact dean.martin@frostaura.net.
+[<< Back](../README.md)
