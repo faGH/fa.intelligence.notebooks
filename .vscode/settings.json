@@ -3,7 +3,7 @@
     "python.linting.enabled": true,
     "jupyter.jupyterServerType": "local",
     "files.exclude": {
-        "**/.git*": true,
+        "**/.git": true,
         "**/.ipynb_checkpoints": true,
         "**/.vscode": true,
         "**/__pycache__": true,
