@@ -64,7 +64,7 @@ class YahooFinanceDataAccess(IPublicAssetDataAccess):
 
                 return self.__get_symbol_quote__(symbol=symbol, current_attempt=current_attempt+1)
 
-            return None
+            return {}
 
     def __get_symbol_quotes_async__(self, symbols: list) -> list:
         parrallelizer: Parallel = Parallel(n_jobs=len(symbols), prefer='threads')
@@ -85,7 +85,7 @@ class YahooFinanceDataAccess(IPublicAssetDataAccess):
     def get_symbol_info(self, symbol: str) -> SymbolData:
         '''Get the data for a specific symbol.'''
         quote: dict = self.__get_symbol_quote__(symbol=symbol)
-            
+
         return SymbolData(symbol=quote['symbol'],
                           company_name=quote['company_name'],
                           current_price=quote['current_price'],
@@ -94,16 +94,8 @@ class YahooFinanceDataAccess(IPublicAssetDataAccess):
 
     def augment_symbols_info(self, symbols: pd.DataFrame) -> pd.DataFrame:
         '''Add info to a daraframe containing symbols.'''
-        def get_symbol_data(symbol: str) -> SymbolData:
-            quote: dict = self.__get_symbol_quote__(symbol=symbol)
-            
-            return SymbolData(symbol=quote['symbol'],
-                              company_name=quote['company_name'],
-                              current_price=quote['current_price'],
-                              eps=quote['eps'],
-                              annual_growth_projected=quote['growth_rate'])
-        
+
         __symbols__: pd.DataFrame = symbols.copy()
-        __symbols__['quote'] = __symbols__['symbol'].apply(get_symbol_data)
+        __symbols__['quote'] = __symbols__['symbol'].apply(self.get_symbol_info)
 
         return __symbols__.sort_values('symbol').loc[__symbols__['quote'] != None]
