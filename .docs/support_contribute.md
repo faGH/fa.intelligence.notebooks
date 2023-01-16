@@ -1,5 +1,6 @@
 [<< Back](../README.md)
 
+# Support & Contribute
 ## Contribute
 To contribute, simply fork the repository, make changes and create a pull request.
 
