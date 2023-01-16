@@ -13,3 +13,4 @@
 **/examples/**/*.csv
 **/data/MNIST/**
 **/data/CATS_DOGS/**
+**/*.egg-info/**
